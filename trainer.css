@@ -1,14 +1,64 @@
 :root {
-  --dark-teal: rgb(47, 79, 79);
-  --celadon-blue: #ACE6D7;
+  --teal-dark: #2F4F4F;
+
+  --aquamarine: #ACE6D7;
+  --aquamarine-tint: #F6FCFB;
+
+  --yellow: #FCF4C1;
+
+  --purple-dark: #909FFA;
+  --purple-mid: #C1C9FC;
+  --purple-light: #F2F3FE;
 }
 
 #title {
-  background-color: var(--celadon-blue);
+  background-color: var(--aquamarine);
   border-radius: 15px;
 }
 
 body {
   font-family: "Raleway", sans-serif;
-  color: var(--dark-teal);
+  color: var(--teal-dark);
+  background-color: var(--aquamarine-tint);
+}
+
+
+
+
+#select-container {
+  background-color: var(--yellow);
+  border-radius: 15px;
+  padding: 8px;
+}
+
+.posture {
+  height: 20px;
+  border-radius: 16px;
+  margin: 10px 5px;
+  padding: 8px 10px;
+  /* float:left; */
+  border: 2px solid;
+  background-color: var(--purple-mid);
+  white-space: nowrap;
+}
+.posture:hover {
+  cursor: pointer;
+  background-color: var(--purple-dark);
+}
+.posture p {
+  margin:0px;
+}
+#posture-buttons {
+  display: flex;
+  /* flex-direction: row; */
+  background-color: var(--purple-light);
+  margin: 10px;
+  border-radius: 15px;
+  height: 80px;
+  width: 880px;
+  overflow-x: scroll;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 8px;
+  /* overflow-y: hidden; */
 }
