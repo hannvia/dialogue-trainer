@@ -1,0 +1,14 @@
+:root {
+  --dark-teal: rgb(47, 79, 79);
+  --celadon-blue: #ACE6D7;
+}
+
+#title {
+  background-color: var(--celadon-blue);
+  border-radius: 15px;
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+  color: var(--dark-teal);
+}
