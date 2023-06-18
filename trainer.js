@@ -3,12 +3,30 @@ class Trainer {
     constructor() {
         // 100 denotes not selected, 99 denotes random 
         this.selectedPosture = 100;
+        this.selectedActivity = 100;
+
+        // for specific activities
+        this.incrementIndex = 0;
     };
 
     setSelectedPosture(postureIndex) {
         // come back and update this random later
-        const selectedPosture = postureIndex != 99 ? postureIndex : Math.floor(Math.random() * 3);
+        const selectedPosture = postureIndex != 99 ? postureIndex : Math.floor(Math.random() * 27);
         this.selectedPosture = selectedPosture;
+    };
+
+    setSelectedActivity(activityIndex) {
+        // come back and update this random later
+        const selectedActivity = activityIndex != 99 ? activityIndex : Math.floor(Math.random() * 2);
+        this.selectedActivity = selectedActivity;
+    };
+
+    // for specific activities 
+    increment() {
+        this.incrementIndex += 1;
+    };
+    refresh() {
+        this.incrementIndex = 0;
     };
 
 };
@@ -17,18 +35,47 @@ class Trainer {
 //
 const trainer = new Trainer();
 
-// select posture, activity, or stress 
+// select posture, activity, or strategy 
 //
 function selectPosture(postureIndex) {
     trainer.setSelectedPosture(postureIndex);
     renderPractice();
 };
+function selectActivity(activityIndex) {
+    trainer.setSelectedActivity(activityIndex);
+    renderPractice();
+};
+
+// for specific activities 
+function incrementClick() {
+    // if you ever store selected posture num lines (or calculate it) can do check here 
+    trainer.increment();
+    renderPractice();
+};
+function refreshClick() {
+    trainer.refresh();
+    renderPractice();
+};
+
+
+
+function clearPractice() {
+    // clears practice section
+    document.getElementById("show-dialogue-container").innerHTML = ""; 
+    document.getElementById("increment-container").innerHTML = ""; 
+};
+
 
 // render activity based on selected posture and activity
 //
 function renderPractice() {
+    clearPractice();
     if (trainer.selectedPosture != 100) {
-        showDialogue(trainer.selectedPosture);
+        if (trainer.selectedActivity == 0) {
+            showDialogue(trainer.selectedPosture);
+        } else if (trainer.selectedActivity == 1) {
+            increment(trainer.selectedPosture);
+        }
     };
 };
 
@@ -40,6 +87,63 @@ function showDialogue(postureIndex) {
         dialogue += "<b>" + (i < 9 ? "&nbsp;" : "") + (i + 1).toString() + ".&nbsp;&nbsp;</b>" + content[postureIndex]["postureContent"]["lines"][i] + "<br>";
     }
     document.getElementById("show-dialogue-container").innerHTML = "<p>" + dialogue + "</p>";    
+};
+
+// for Activity 1, Increment
+//
+// if you click away to another activity and come back, you'll still be on your current increment
+function increment(postureIndex) {
+    let dialogue = "";
+    let endIndex = trainer.incrementIndex;
+    let incrementButtonsContainer = `
+    <div
+        id="increment-buttons-container"
+        style="
+            display: flex;
+            background-color: #D8E6AC;
+            margin: 10px;
+            border-radius: 15px;
+            height: 64px;
+            width: 200px;
+            padding-left: 8px;
+            padding-right: 8px;
+            padding-top: 6px;"
+    >
+        <div 
+            onclick="incrementClick()"
+            id="increment-button"
+            style="height: 20px;
+                border-radius: 16px;
+                margin: 10px 5px;
+                padding: 8px 10px;
+                width: 80px;
+                border: 2px solid;
+                background-color: #ABC84A;
+            "
+        >
+            <p style="margin:-2px; font-size:16px;">Increment</p>
+        </div>
+        <div 
+            onclick="refreshClick()"
+            id="increment-button"
+            style="height: 20px;
+                border-radius: 16px;
+                margin: 10px 5px;
+                padding: 8px 10px;
+                width: 60px;
+                border: 2px solid;
+                background-color: #ABC84A;
+            "
+        >
+            <p style="margin:-2px; font-size:16px;">Refresh</p>
+        </div>
+    </div>
+    `;
+    for (let i = 0; i < Math.min(endIndex + 1, content[postureIndex]["postureNumLines"]); i++) {
+        dialogue += "<b>" + (i < 9 ? "&nbsp;" : "") + (i + 1).toString() + ".&nbsp;&nbsp;</b>" + content[postureIndex]["postureContent"]["lines"][i] + "<br>";
+    }
+    document.getElementById("increment-container").innerHTML = 
+        incrementButtonsContainer + "<p>" + dialogue + "</p>";    
 };
 
 
