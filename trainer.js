@@ -550,7 +550,7 @@ const content = {
         "postureName": "tree",
         "posturePrintName": "Tree",
         "postureNumLines": 20,
-        "postureSections": [[0,20], [0,4], [5,14], [15,19]],
+        "postureSections": [[0,19], [0,4], [5,14], [15,19]],
         "postureContent": {
             "lines": {
                 0: "Everybody go back to where you started.",
@@ -584,10 +584,35 @@ const content = {
     14: {
         "postureName": "toeStand",
         "posturePrintName": "Toe Stand",
-        "postureNumLines": 0,
-        "postureSections": [[0,0], [0,0], [0,0], [0,0]],
+        "postureNumLines": 18,
+        "postureSections": [[0,17], [0,3], [4,12], [13,17]],
         "postureContent": {
-            "lines": {},
+            "lines": {
+                0: "Feet together.",
+                1: "Focus one point on the floor, Four feet in front of you. Don’t move your eyes, Don’t blink your eyes.", 
+                2: "Bring your right foot up onto the middle of your thigh, Or wherever you feel comfortable.", 
+                3: "Hands palms together in front of your chest.",
+
+                4: "Bend your body down from the lower spine toward the floor.", 
+                5: "Touch your both hands, 10 fingers, On the floor.",
+                6: "Slowly bend the knee, Bring your hips down, And sit on your heel.",
+
+                7: "Bring your hands to both sides on the floor.",
+                8: "Stretch your spine up to the ceiling, Hips up, Balancing on your fingertips.",
+
+                9: "Both knees should be in one line, Parallel to the floor.",
+                10: "Keep focusing one point on the floor, Four feet in front of you.",
+
+                11: "Slowly bring your left hand up in front of your chest.", 
+                12: "If you can still balance there, Without moving, Then bring your right hand up, Palms together (namaskar.)", 
+                13: "Stretch your spine up to the ceiling, Like natural human traction.", 
+                14: "Suck your stomach in.",
+
+                15: "Balance there.",
+
+                16: "Change.",
+                17: "Come up exactly the opposite way you went down.",
+            },
         },
     },
     15: {
