@@ -150,13 +150,14 @@ function increment(postureIndex) {
 
 // data for all the dialogue for all the postures 
 //
-const content = {
+const content = {    
     0: {
-        "postureName": "halfMoonSidebend",
-        "postureNumLines": 26,
-        "postureSections": [[0,25], [0,8], [9,20], [21,25]],
-        "postureContent": {
-            "lines": {
+    "postureName": "halfMoonSidebend",
+    "posturePrintName": "Half Moon Sidebend",
+    "postureNumLines": 26,
+    "postureSections": [[0,25], [0,8], [9,20], [21,25]],
+    "postureContent": {
+        "lines": {
                 0: "Everybody together. Feet together, heels and toes touching each other.",
                 1: "Arms over your head sideways, Palms together",
                 2: "Interlock your fingers, Release your index fingers, Thumbs crossed",
@@ -193,6 +194,7 @@ const content = {
         },
     1: {
         "postureName": "halfMoonBackbend",
+        "posturePrintName": "Half Moon Backbend",
         "postureNumLines": 13,
         "postureSections": [[0,12], [0,2], [3,7], [8,12]],
         "postureContent": {
@@ -218,6 +220,7 @@ const content = {
     },
     2: {
         "postureName": "handsToFeet",
+        "posturePrintName": "Hands to Feet",
         "postureNumLines": 22,
         "postureSections": [[0,21], [0,6], [7,14], [15,21]],
         "postureContent": {
@@ -254,6 +257,7 @@ const content = {
     },
     3: {
         "postureName": "awkwardPart1",
+        "posturePrintName": "Awkward Part 1",
         "postureNumLines": 20,
         "postureSections": [[0,19], [0,6], [7,14], [15,19]],
         "postureContent": {
@@ -288,6 +292,7 @@ const content = {
     },
     4: {
         "postureName": "awkwardPart2",
+        "posturePrintName": "Awkward Part 2",
         "postureNumLines": 12,
         "postureSections": [[0,11], [0,5], [6,10], [11,11]],
         "postureContent": {
@@ -312,6 +317,7 @@ const content = {
     },
     5: {
         "postureName": "awkwardPart3",
+        "posturePrintName": "Awkward Part 3",
         "postureSections": [[0,9], [0,4], [5,7], [8,9]],
         "postureNumLines": 10,
         "postureContent": {
@@ -334,6 +340,7 @@ const content = {
     },
     6: {
         "postureName": "eagle",
+        "posturePrintName": "Eagle",
         "postureNumLines": 20,
         "postureSections": [[0,19], [0,5], [6,14], [15,19]],
         "postureContent": {
@@ -367,6 +374,7 @@ const content = {
     },
     7: {
         "postureName": "standingHeadToKnee",
+        "posturePrintName": "Standing Head to Knee",
         "postureNumLines": 20,
         "postureSections": [[0,19], [0,8], [9,13], [14,19]],
         "postureContent": {
@@ -400,6 +408,7 @@ const content = {
     },
     8: {
         "postureName": "standingBow",
+        "posturePrintName": "Standing Bow",
         "postureNumLines": 27,
         "postureSections": [[0,26], [0,11], [12,21], [22,26]],
         "postureContent": {
@@ -442,6 +451,7 @@ const content = {
     },
     9: {
         "postureName": "balancingStick",
+        "posturePrintName": "Balancing Stick",
         "postureNumLines": 28,
         "postureSections": [[0,27], [0,13], [14,21], [22,27]],
         "postureContent": {
@@ -485,4 +495,276 @@ const content = {
             }, 
         },
     },
-};
+    10: {
+        "postureName": "standingSeparateLegStretching",
+        "posturePrintName": "Standing Separate Leg Stretching",
+        "postureNumLines": 0,
+        "postureSections": [[0,0], [0,0], [0,0], [0,0]],
+        "postureContent": {
+            "lines": {},
+        },
+    },
+    11: {
+        "postureName": "triangle",
+        "posturePrintName": "Triangle",
+        "postureNumLines": 27,
+        "postureSections": [[0,26], [0,13], [14,20], [21,26]],
+        "postureContent": {
+            "lines": {
+                0: "Feet together. Arms over the head sideways.",
+                1: "Right leg step to the right - BIG STEP - Four feet minimum.", 
+                2: "Immediately arms down parallel to the floor, Palms facing down.",
+
+                3: "Look straight ahead.",
+                4: "Push your hips forward, Upper body leaning back.",
+
+                5: "Turn your right foot out to the right - all the way.",
+                6: "Turn it a half inch more, Until the foot is parallel to the front; Two heels in one line.", 
+                7: "Inhale breathing, Bend the right knee and sit down.",
+                8: "Bounce a couple of times, To make sure you’re sitting down low enough.",
+                9: "Your right thigh should be parallel to the floor.",
+                10: "Your right leg should look like a perfect upside-down “L” like Linda.",
+                11: "Make sure your hips don’t go up anymore. STAY DOWN THERE.", 
+                12: "Again, Hips forward, Arms back, Body back, Lean back, Open your chest.", 
+                13: "Spine straight in the center.",
+
+                14: "Inhale breathing - Move both arms at the same time, Right elbow in front of the right knee.",
+                15: "Bring your right hand down and put your fingertips between the big toe and 2nd toe,", 
+                16: "Don’t touch the floor, No pressure on the fingertips against the floor.",
+                17: "Look up toward the ceiling - Touch your chin to the left shoulder, So the profile of your face is exactly visible.",
+
+                18: "Take a deep breath, Continuously stretch your left arm up to the ceiling, You’re trying to touch the ceiling.",
+                19: "Right arm stretch down, Left arm stretch up.",
+                20: "In other words, Both arms - Shoulders should be stretching each other, Up and down, In opposite directions, Like natural human traction.",
+                
+                21: "Push your left hip forward.",
+                22: "At the same time, Push your right knee back with the help of your right elbow. TOUCH THE TOES.",
+                23: "Upper body turn, Or twist backward (like the Spine Twisting Posture).",
+                
+                24: "Keep your left knee locked, And left foot flat on the floor.",
+                
+                25: "Inhale breathing; Come up, And stop in the middle - Right foot back to the center. Keep your arms there.",
+                26: "Left side.",
+            },
+        },
+    },
+    12: {
+        "postureName": "standingSeparateLegHeadToKnee",
+        "posturePrintName": "Standing Separate Leg Head to Knee",
+        "postureNumLines": 20,
+        "postureSections": [[0,19], [0,7], [8,11], [12,19]],
+        "postureContent": {
+            "lines": {
+                0: "Feet together nicely.",
+                1: "Arms over the head sideways. Hands/Palms together, Thumbs crossed.",
+                2: "Stretch your arms toward the ceiling.",
+                3: "Throughout the posture, Elbows locked, So arms always touching with the ears.",
+
+                4: "Right leg step to the right, A big step, 3 feet distance (36 inches) between the feet.",
+                5: "Turn to the right, 180 degree angle.",
+                6: "Turn your hips, 1, 2, 3, 4, 5 times, Beyond your flexibility, To bring your HIPS exactly in one line from the side.",
+                7: "Two heels in one line, Backside foot should be 45 degree angle.",
+
+                8: "Exhale breathing, And you go down, Arms and head together.", 
+                9: "Tuck your chin to your chest, Look at your stomach, Touch your forehead on the knee.",
+                10: "Forehead should touch the knee.",
+                11: "If you can’t touch your forehead, Bend your right knee a little bit, But you have to touch your forehead to the knee.",
+
+                12: "Stretch your hands forward, Beyond the toes. Keep your elbows straight.",
+                13: "Push your hands against the floor, To get your knee locked.",
+                14: "Exhale breathing, Suck your stomach in, Throat choked, Eyes open, Breathing normal.", 
+                15: "Bring maximum body weight on the front leg, So your right side hip is sticking up toward the ceiling, To get your two hips in one line.",
+                16: "Lock the knee very quickly a couple of times.",
+                17: "Inhale breathing, Very gently come up, Arms and head together.",
+                18: "Stop in the middle.",
+                19: "Arms down, right leg back to the place.",
+            },
+        },
+    },
+    13: {
+        "postureName": "tree",
+        "posturePrintName": "Tree",
+        "postureNumLines": 20,
+        "postureSections": [[0,19], [0,4], [5,14], [15,19]],
+        "postureContent": {
+            "lines": {
+                0: "Everybody go back to where you started.",
+                1: "Feet together nicely.",
+                2: "Focus on one spot in the mirror.",
+                3: "Grab your right foot from underneath, With your left hand.",
+                4: "Right leg lifts all the way up, Until your heel is touching high on your thigh, Sole of the foot is facing the ceiling.",
+
+                5: "Be careful of the right knee.",
+                6: "Slowly, Gently, Let your right knee come down.",
+                7: "Push your hips forward toward the mirror, And gently push your right knee back.", 
+                8: "Try to get your two knees in one line from the side, To open up your pelvis. Same principle like in triangle pose.", 
+                9: "Upper body lean back a couple of inches.",
+
+                10: "Stretch your spine up to the ceiling, And suck your stomach in.", 
+                11: "Two hips in one line, Two shoulders in one line.",
+                12: "Bring your right hand up to the center of your chest.",
+                13: "If you can balance there, Bring your left hand up, Palms together.",
+                14: "If your foot slips at all, Continue to hold the foot with your left hand.", 
+
+                15: "Left leg locked, Thigh contracted.",
+                16: "Spine straight, Stomach in.",
+
+                17: "Focus one point, Eyes open, Breathing normal. Stay there.",
+
+                18: "Change.", 
+                19: "Left leg.",
+            },
+        },
+    },
+    14: {
+        "postureName": "toeStand",
+        "posturePrintName": "Toe Stand",
+        "postureNumLines": 18,
+        "postureSections": [[0,17], [0,3], [4,12], [13,17]],
+        "postureContent": {
+            "lines": {
+                0: "Feet together.",
+                1: "Focus one point on the floor, Four feet in front of you. Don’t move your eyes, Don’t blink your eyes.", 
+                2: "Bring your right foot up onto the middle of your thigh, Or wherever you feel comfortable.", 
+                3: "Hands palms together in front of your chest.",
+
+                4: "Bend your body down from the lower spine toward the floor.", 
+                5: "Touch your both hands, 10 fingers, On the floor.",
+                6: "Slowly bend the knee, Bring your hips down, And sit on your heel.",
+
+                7: "Bring your hands to both sides on the floor.",
+                8: "Stretch your spine up to the ceiling, Hips up, Balancing on your fingertips.",
+
+                9: "Both knees should be in one line, Parallel to the floor.",
+                10: "Keep focusing one point on the floor, Four feet in front of you.",
+
+                11: "Slowly bring your left hand up in front of your chest.", 
+                12: "If you can still balance there, Without moving, Then bring your right hand up, Palms together (namaskar.)", 
+                13: "Stretch your spine up to the ceiling, Like natural human traction.", 
+                14: "Suck your stomach in.",
+
+                15: "Balance there.",
+
+                16: "Change.",
+                17: "Come up exactly the opposite way you went down.",
+            },
+        },
+    },
+    15: {
+        "postureName": "windRemoving",
+        "posturePrintName": "Wind Removing",
+        "postureNumLines": 0,
+        "postureSections": [[0,0], [0,0], [0,0], [0,0]],
+        "postureContent": {
+            "lines": {},
+        },
+    },
+    16: {
+        "postureName": "cobra",
+        "posturePrintName": "Cobra",
+        "postureNumLines": 0,
+        "postureSections": [[0,0], [0,0], [0,0], [0,0]],
+        "postureContent": {
+            "lines": {},
+        },
+    },
+    17: {
+        "postureName": "locust",
+        "posturePrintName": "Locust",
+        "postureNumLines": 0,
+        "postureSections": [[0,0], [0,0], [0,0], [0,0]],
+        "postureContent": {
+            "lines": {},
+        },
+    },
+    18: {
+        "postureName": "fullLocust",
+        "posturePrintName": "Full Locust",
+        "postureNumLines": 0,
+        "postureSections": [[0,0], [0,0], [0,0], [0,0]],
+        "postureContent": {
+            "lines": {},
+        },
+    },
+    19: {
+        "postureName": "bow",
+        "posturePrintName": "Bow",
+        "postureNumLines": 0,
+        "postureSections": [[0,0], [0,0], [0,0], [0,0]],
+        "postureContent": {
+            "lines": {},
+        },
+    },
+    20: {
+        "postureName": "fixedFirm",
+        "posturePrintName": "Fixed Firm",
+        "postureNumLines": 0,
+        "postureSections": [[0,0], [0,0], [0,0], [0,0]],
+        "postureContent": {
+            "lines": {},
+        },
+    },
+    21: {
+        "postureName": "halfTortoise",
+        "posturePrintName": "Half Tortoise",
+        "postureNumLines": 0,
+        "postureSections": [[0,0], [0,0], [0,0], [0,0]],
+        "postureContent": {
+            "lines": {},
+        },
+    },
+    22: {
+        "postureName": "camel",
+        "posturePrintName": "Camel",
+        "postureNumLines": 0,
+        "postureSections": [[0,0], [0,0], [0,0], [0,0]],
+        "postureContent": {
+            "lines": {},
+        },
+    },
+    23: {
+        "postureName": "rabbit",
+        "posturePrintName": "Rabbit",
+        "postureNumLines": 0,
+        "postureSections": [[0,0], [0,0], [0,0], [0,0]],
+        "postureContent": {
+            "lines": {},
+        },
+    },
+    24: {
+        "postureName": "headToKnee",
+        "posturePrintName": "Head To Knee",
+        "postureNumLines": 0,
+        "postureSections": [[0,0], [0,0], [0,0], [0,0]],
+        "postureContent": {
+            "lines": {},
+        },
+    },
+    25: {
+        "postureName": "stretching",
+        "posturePrintName": "Stretching",
+        "postureNumLines": 0,
+        "postureSections": [[0,0], [0,0], [0,0], [0,0]],
+        "postureContent": {
+            "lines": {},
+        },
+    },
+    26: {
+        "postureName": "spineTwist",
+        "posturePrintName": "Spine Twist",
+        "postureNumLines": 0,
+        "postureSections": [[0,0], [0,0], [0,0], [0,0]],
+        "postureContent": {
+            "lines": {},
+        },
+    },
+    27: {
+        "postureName": "pranayamaBreathing",
+        "posturePrintName": "Pranayama Breathing",
+        "postureNumLines": 0,
+        "postureSections": [[0,0], [0,0], [0,0], [0,0]],
+        "postureContent": {
+            "lines": {},
+        },
+    },
+    }
