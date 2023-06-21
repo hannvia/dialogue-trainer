@@ -516,8 +516,8 @@ const content = {
     12: {
         "postureName": "standingSeparateLegHeadToKnee",
         "posturePrintName": "Standing Separate Leg Head to Knee",
-        "postureNumLines": 0,
-        "postureSections": [[0,0], [0,0], [0,0], [0,0]],
+        "postureNumLines": 20,
+        "postureSections": [[0,19], [0,7], [8,11], [12,19]],
         "postureContent": {
             "lines": {
                 0: "Feet together nicely.",
