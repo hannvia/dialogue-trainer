@@ -549,10 +549,36 @@ const content = {
     13: {
         "postureName": "tree",
         "posturePrintName": "Tree",
-        "postureNumLines": 0,
-        "postureSections": [[0,0], [0,0], [0,0], [0,0]],
+        "postureNumLines": 20,
+        "postureSections": [[0,20], [0,4], [5,14], [15,19]],
         "postureContent": {
-            "lines": {},
+            "lines": {
+                0: "Everybody go back to where you started.",
+                1: "Feet together nicely.",
+                2: "Focus on one spot in the mirror.",
+                3: "Grab your right foot from underneath, With your left hand.",
+                4: "Right leg lifts all the way up, Until your heel is touching high on your thigh, Sole of the foot is facing the ceiling.",
+
+                5: "Be careful of the right knee.",
+                6: "Slowly, Gently, Let your right knee come down.",
+                7: "Push your hips forward toward the mirror, And gently push your right knee back.", 
+                8: "Try to get your two knees in one line from the side, To open up your pelvis. Same principle like in triangle pose.", 
+                9: "Upper body lean back a couple of inches.",
+
+                10: "Stretch your spine up to the ceiling, And suck your stomach in.", 
+                11: "Two hips in one line, Two shoulders in one line.",
+                12: "Bring your right hand up to the center of your chest.",
+                13: "If you can balance there, Bring your left hand up, Palms together.",
+                14: "If your foot slips at all, Continue to hold the foot with your left hand.", 
+
+                15: "Left leg locked, Thigh contracted.",
+                16: "Spine straight, Stomach in.",
+
+                17: "Focus one point, Eyes open, Breathing normal. Stay there.",
+
+                18: "Change.", 
+                19: "Left leg.",
+            },
         },
     },
     14: {
