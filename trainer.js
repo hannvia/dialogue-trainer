@@ -150,13 +150,14 @@ function increment(postureIndex) {
 
 // data for all the dialogue for all the postures 
 //
-const content = {
+const content = {    
     0: {
-        "postureName": "halfMoonSidebend",
-        "postureNumLines": 26,
-        "postureSections": [[0,25], [0,8], [9,20], [21,25]],
-        "postureContent": {
-            "lines": {
+    "postureName": "halfMoonSidebend",
+    "posturePrintName": "Half Moon Sidebend",
+    "postureNumLines": 26,
+    "postureSections": [[0,25], [0,8], [9,20], [21,25]],
+    "postureContent": {
+        "lines": {
                 0: "Everybody together. Feet together, heels and toes touching each other.",
                 1: "Arms over your head sideways, Palms together",
                 2: "Interlock your fingers, Release your index fingers, Thumbs crossed",
@@ -193,6 +194,7 @@ const content = {
         },
     1: {
         "postureName": "halfMoonBackbend",
+        "posturePrintName": "Half Moon Backbend",
         "postureNumLines": 13,
         "postureSections": [[0,12], [0,2], [3,7], [8,12]],
         "postureContent": {
@@ -218,6 +220,7 @@ const content = {
     },
     2: {
         "postureName": "handsToFeet",
+        "posturePrintName": "Hands to Feet",
         "postureNumLines": 22,
         "postureSections": [[0,21], [0,6], [7,14], [15,21]],
         "postureContent": {
@@ -254,6 +257,7 @@ const content = {
     },
     3: {
         "postureName": "awkwardPart1",
+        "posturePrintName": "Awkward Part 1",
         "postureNumLines": 20,
         "postureSections": [[0,19], [0,6], [7,14], [15,19]],
         "postureContent": {
@@ -288,6 +292,7 @@ const content = {
     },
     4: {
         "postureName": "awkwardPart2",
+        "posturePrintName": "Awkward Part 2",
         "postureNumLines": 12,
         "postureSections": [[0,11], [0,5], [6,10], [11,11]],
         "postureContent": {
@@ -312,6 +317,7 @@ const content = {
     },
     5: {
         "postureName": "awkwardPart3",
+        "posturePrintName": "Awkward Part 3",
         "postureSections": [[0,9], [0,4], [5,7], [8,9]],
         "postureNumLines": 10,
         "postureContent": {
@@ -334,6 +340,7 @@ const content = {
     },
     6: {
         "postureName": "eagle",
+        "posturePrintName": "Eagle",
         "postureNumLines": 20,
         "postureSections": [[0,19], [0,5], [6,14], [15,19]],
         "postureContent": {
@@ -367,6 +374,7 @@ const content = {
     },
     7: {
         "postureName": "standingHeadToKnee",
+        "posturePrintName": "Standing Head to Knee",
         "postureNumLines": 20,
         "postureSections": [[0,19], [0,8], [9,13], [14,19]],
         "postureContent": {
@@ -400,6 +408,7 @@ const content = {
     },
     8: {
         "postureName": "standingBow",
+        "posturePrintName": "Standing Bow",
         "postureNumLines": 27,
         "postureSections": [[0,26], [0,11], [12,21], [22,26]],
         "postureContent": {
@@ -442,6 +451,7 @@ const content = {
     },
     9: {
         "postureName": "balancingStick",
+        "posturePrintName": "Balancing Stick",
         "postureNumLines": 28,
         "postureSections": [[0,27], [0,13], [14,21], [22,27]],
         "postureContent": {
@@ -485,4 +495,190 @@ const content = {
             }, 
         },
     },
-};
+    10: {
+        "postureName": "standingSeparateLegStretching",
+        "posturePrintName": "Standing Separate Leg Stretching",
+        "postureNumLines": 0,
+        "postureSections": [[0,0], [0,0], [0,0], [0,0]],
+        "postureContent": {
+            "lines": {},
+        },
+    },
+    11: {
+        "postureName": "triangle",
+        "posturePrintName": "Triangle",
+        "postureNumLines": 0,
+        "postureSections": [[0,0], [0,0], [0,0], [0,0]],
+        "postureContent": {
+            "lines": {},
+        },
+    },
+    12: {
+        "postureName": "standingSeparateLegHeadToKnee",
+        "posturePrintName": "Standing Separate Leg Head to Knee",
+        "postureNumLines": 0,
+        "postureSections": [[0,0], [0,0], [0,0], [0,0]],
+        "postureContent": {
+            "lines": {
+                0: "Feet together nicely.",
+                1: "Arms over the head sideways. Hands/Palms together, Thumbs crossed.",
+                2: "Stretch your arms toward the ceiling.",
+                3: "Throughout the posture, Elbows locked, So arms always touching with the ears.",
+
+                4: "Right leg step to the right, A big step, 3 feet distance (36 inches) between the feet.",
+                5: "Turn to the right, 180 degree angle.",
+                6: "Turn your hips, 1, 2, 3, 4, 5 times, Beyond your flexibility, To bring your HIPS exactly in one line from the side.",
+                7: "Two heels in one line, Backside foot should be 45 degree angle.",
+
+                8: "Exhale breathing, And you go down, Arms and head together.", 
+                9: "Tuck your chin to your chest, Look at your stomach, Touch your forehead on the knee.",
+                10: "Forehead should touch the knee.",
+                11: "If you can’t touch your forehead, Bend your right knee a little bit, But you have to touch your forehead to the knee.",
+
+                12: "Stretch your hands forward, Beyond the toes. Keep your elbows straight.",
+                13: "Push your hands against the floor, To get your knee locked.",
+                14: "Exhale breathing, Suck your stomach in, Throat choked, Eyes open, Breathing normal.", 
+                15: "Bring maximum body weight on the front leg, So your right side hip is sticking up toward the ceiling, To get your two hips in one line.",
+                16: "Lock the knee very quickly a couple of times.",
+                17: "Inhale breathing, Very gently come up, Arms and head together.",
+                18: "Stop in the middle.",
+                19: "Arms down, right leg back to the place.",
+            },
+        },
+    },
+    13: {
+        "postureName": "tree",
+        "posturePrintName": "Tree",
+        "postureNumLines": 0,
+        "postureSections": [[0,0], [0,0], [0,0], [0,0]],
+        "postureContent": {
+            "lines": {},
+        },
+    },
+    14: {
+        "postureName": "toeStand",
+        "posturePrintName": "Toe Stand",
+        "postureNumLines": 0,
+        "postureSections": [[0,0], [0,0], [0,0], [0,0]],
+        "postureContent": {
+            "lines": {},
+        },
+    },
+    15: {
+        "postureName": "windRemoving",
+        "posturePrintName": "Wind Removing",
+        "postureNumLines": 0,
+        "postureSections": [[0,0], [0,0], [0,0], [0,0]],
+        "postureContent": {
+            "lines": {},
+        },
+    },
+    16: {
+        "postureName": "cobra",
+        "posturePrintName": "Cobra",
+        "postureNumLines": 0,
+        "postureSections": [[0,0], [0,0], [0,0], [0,0]],
+        "postureContent": {
+            "lines": {},
+        },
+    },
+    17: {
+        "postureName": "locust",
+        "posturePrintName": "Locust",
+        "postureNumLines": 0,
+        "postureSections": [[0,0], [0,0], [0,0], [0,0]],
+        "postureContent": {
+            "lines": {},
+        },
+    },
+    18: {
+        "postureName": "fullLocust",
+        "posturePrintName": "Full Locust",
+        "postureNumLines": 0,
+        "postureSections": [[0,0], [0,0], [0,0], [0,0]],
+        "postureContent": {
+            "lines": {},
+        },
+    },
+    19: {
+        "postureName": "bow",
+        "posturePrintName": "Bow",
+        "postureNumLines": 0,
+        "postureSections": [[0,0], [0,0], [0,0], [0,0]],
+        "postureContent": {
+            "lines": {},
+        },
+    },
+    20: {
+        "postureName": "fixedFirm",
+        "posturePrintName": "Fixed Firm",
+        "postureNumLines": 0,
+        "postureSections": [[0,0], [0,0], [0,0], [0,0]],
+        "postureContent": {
+            "lines": {},
+        },
+    },
+    21: {
+        "postureName": "halfTortoise",
+        "posturePrintName": "Half Tortoise",
+        "postureNumLines": 0,
+        "postureSections": [[0,0], [0,0], [0,0], [0,0]],
+        "postureContent": {
+            "lines": {},
+        },
+    },
+    22: {
+        "postureName": "camel",
+        "posturePrintName": "Camel",
+        "postureNumLines": 0,
+        "postureSections": [[0,0], [0,0], [0,0], [0,0]],
+        "postureContent": {
+            "lines": {},
+        },
+    },
+    23: {
+        "postureName": "rabbit",
+        "posturePrintName": "Rabbit",
+        "postureNumLines": 0,
+        "postureSections": [[0,0], [0,0], [0,0], [0,0]],
+        "postureContent": {
+            "lines": {},
+        },
+    },
+    24: {
+        "postureName": "headToKnee",
+        "posturePrintName": "Head To Knee",
+        "postureNumLines": 0,
+        "postureSections": [[0,0], [0,0], [0,0], [0,0]],
+        "postureContent": {
+            "lines": {},
+        },
+    },
+    25: {
+        "postureName": "stretching",
+        "posturePrintName": "Stretching",
+        "postureNumLines": 0,
+        "postureSections": [[0,0], [0,0], [0,0], [0,0]],
+        "postureContent": {
+            "lines": {},
+        },
+    },
+    26: {
+        "postureName": "spineTwist",
+        "posturePrintName": "Spine Twist",
+        "postureNumLines": 0,
+        "postureSections": [[0,0], [0,0], [0,0], [0,0]],
+        "postureContent": {
+            "lines": {},
+        },
+    },
+    27: {
+        "postureName": "pranayamaBreathing",
+        "posturePrintName": "Pranayama Breathing",
+        "postureNumLines": 0,
+        "postureSections": [[0,0], [0,0], [0,0], [0,0]],
+        "postureContent": {
+            "lines": {},
+        },
+    },
+    }
