@@ -507,10 +507,45 @@ const content = {
     11: {
         "postureName": "triangle",
         "posturePrintName": "Triangle",
-        "postureNumLines": 0,
-        "postureSections": [[0,0], [0,0], [0,0], [0,0]],
+        "postureNumLines": 27,
+        "postureSections": [[0,26], [0,13], [14,20], [21,26]],
         "postureContent": {
-            "lines": {},
+            "lines": {
+                0: "Feet together. Arms over the head sideways.",
+                1: "Right leg step to the right - BIG STEP - Four feet minimum.", 
+                2: "Immediately arms down parallel to the floor, Palms facing down.",
+
+                3: "Look straight ahead.",
+                4: "Push your hips forward, Upper body leaning back.",
+
+                5: "Turn your right foot out to the right - all the way.",
+                6: "Turn it a half inch more, Until the foot is parallel to the front; Two heels in one line.", 
+                7: "Inhale breathing, Bend the right knee and sit down.",
+                8: "Bounce a couple of times, To make sure you’re sitting down low enough.",
+                9: "Your right thigh should be parallel to the floor.",
+                10: "Your right leg should look like a perfect upside-down “L” like Linda.",
+                11: "Make sure your hips don’t go up anymore. STAY DOWN THERE.", 
+                12: "Again, Hips forward, Arms back, Body back, Lean back, Open your chest.", 
+                13: "Spine straight in the center.",
+
+                14: "Inhale breathing - Move both arms at the same time, Right elbow in front of the right knee.",
+                15: "Bring your right hand down and put your fingertips between the big toe and 2nd toe,", 
+                16: "Don’t touch the floor, No pressure on the fingertips against the floor.",
+                17: "Look up toward the ceiling - Touch your chin to the left shoulder, So the profile of your face is exactly visible.",
+
+                18: "Take a deep breath, Continuously stretch your left arm up to the ceiling, You’re trying to touch the ceiling.",
+                19: "Right arm stretch down, Left arm stretch up.",
+                20: "In other words, Both arms - Shoulders should be stretching each other, Up and down, In opposite directions, Like natural human traction.",
+                
+                21: "Push your left hip forward.",
+                22: "At the same time, Push your right knee back with the help of your right elbow. TOUCH THE TOES.",
+                23: "Upper body turn, Or twist backward (like the Spine Twisting Posture).",
+                
+                24: "Keep your left knee locked, And left foot flat on the floor.",
+                
+                25: "Inhale breathing; Come up, And stop in the middle - Right foot back to the center. Keep your arms there.",
+                26: "Left side.",
+            },
         },
     },
     12: {
