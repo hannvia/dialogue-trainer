@@ -498,17 +498,45 @@ const content = {
     10: {
         "postureName": "standingSeparateLegStretching",
         "posturePrintName": "Standing Separate Leg Stretching",
-        "postureNumLines": 0,
-        "postureSections": [[0,0], [0,0], [0,0], [0,0]],
+        "postureNumLines": 22,
+        "postureSections": [[0,21], [0,3], [4,8], [9,21]],
         "postureContent": {
-            "lines": {},
+            "lines": {      
+                0: "Feet together nicely. Arms over the head sideways.", 
+                1: "Right Leg step to the right, Four feet minimum.",
+                2: "At the same time, Arms down parallel to the floor.", 
+                3: "Heels in one line, Feet slightly pigeon toed.",
+
+                4: "Suck your stomach in, And slowly bend your upper body down from the Lower Spine toward the floor.",
+                5: "Keep your chin forward and your knees locked.", 
+                6: "Grab your Heels from the outside, Five fingers together, Thumbs touching with the index finger.", 
+                7: "If you can’t grab your heels yet, Grab the outside of your feet.",
+                8: "Pull on your heels as hard as possible, Stretching your body down from the lower spine toward the floor.",
+
+                9: "Make sure your knees are locked throughout the posture.", 
+                10: "Roll forward like a wheel, Body weight on the Toes.",
+                11: "Try to touch your Forehead to the floor.",
+                12: "If you cannot touch your forehead to the floor, Open your legs more, And more, And more, And more.",
+                13: "Chin up, Look forward, Roll forward. Keep pulling.",
+                14: "Eventually your Spine should be perfectly straight from the coccyx to the neck, Forehead touching the floor between the Feet.",
+
+                15: "First your Legs stretching, The Hips stretching, Then Lower Spine stretching, Then whole Spine stretching.",
+                16: "Eventually the whole Body is stretching, 360 degree angle, Inside out, From bones to the skin, Coccyx to the toes, Coccyx to the forehead.",
+
+                17: "Pull harder, Keep pulling.",
+                18: "Chin forward. Roll forward.", 
+                19: "Touch your forehead to the floor.",
+
+                20: "Inhale breathing, Slowly come up.",
+                21: "Right Leg back to the place.",
+            },
         },
     },
     11: {
         "postureName": "triangle",
         "posturePrintName": "Triangle",
-        "postureNumLines": 27,
-        "postureSections": [[0,26], [0,13], [14,20], [21,26]],
+        "postureNumLines": 28,
+        "postureSections": [[0,27], [0,13], [14,20], [21,27]],
         "postureContent": {
             "lines": {
                 0: "Feet together. Arms over the head sideways.",
@@ -543,8 +571,9 @@ const content = {
                 
                 24: "Keep your left knee locked, And left foot flat on the floor.",
                 
-                25: "Inhale breathing; Come up, And stop in the middle - Right foot back to the center. Keep your arms there.",
-                26: "Left side.",
+                25: "Inhale breathing; Come back up, stop in the middle.",
+                26: "Right foot back turn back to center. Keep your arms there.",
+                27: "Left side.",
             },
         },
     },
