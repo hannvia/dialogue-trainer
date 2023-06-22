@@ -28,7 +28,7 @@
   --orange-tint: #FFD6B3;
 }
 
-#title {
+#title, #credits {
   background-color: var(--aquamarine);
   border-radius: 15px;
 }
