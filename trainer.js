@@ -68,6 +68,22 @@ function refreshClick() {
 };
 
 
+// text that describes what posture and activity are selected
+//
+function generateSelectionText() {
+    const activity = activityMap[trainer.selectedActivity]["name"];
+    const posture = content[trainer.selectedPosture]["posturePrintName"]
+    const section = sectionMap[trainer.selectedSection];
+    
+    const styleStringOpen = "<span style='text-transform:uppercase;font-weight:bold'>";
+    const styleStringClose = "</span>";
+    const divider = "<br><br>";
+    
+    const selectionText = styleStringOpen + "ACTIVITY: " + activity + "; &nbsp;POSTURE: " + posture + "; &nbsp;SECTION: " + section + styleStringClose + divider;
+    
+    document.getElementById("selection-text").innerHTML = selectionText; 
+};
+
 
 function clearPractice() {
     // clears practice section
@@ -80,6 +96,8 @@ function clearPractice() {
 //
 function renderPractice() {
     clearPractice();
+    generateSelectionText();
+    
     if (trainer.selectedPosture != 100) {
         if (trainer.selectedActivity == 0) {
             showDialogue(trainer.selectedPosture);
@@ -157,6 +175,83 @@ function increment(postureIndex) {
     document.getElementById("increment-container").innerHTML = 
         incrementButtonsContainer + "<p>" + dialogue + "</p>";    
 };
+
+
+
+
+// maps
+//
+const sectionMap = {
+    0: "All",
+    1: "Setup",
+    2: "Execute",
+    3: "Alignment",
+    4: "Exit",
+};
+const activityMap = {
+    0: {
+        "name": "Show Dialogue",
+        "description": "See the entire dialogue for the given posture. \
+            Good for reviewing.",
+    },
+    1: {
+        "name": "Increment",
+        "description": "Sometimes it's easier to break things down and take the postures one line at a time. \
+            Press the Increment button to add a new line. \
+            Press Refresh to clear all lines but the first one.",
+    },
+    2: {
+        "name": "Unscramble",
+        "description": "You will be shown all the lines of the posture in a scrambled order. \
+            You will also be given the number of lines in the posture. \
+            <br><br> Next to each line is a box, fill in the box with a number from 1 to the number of lines in the posture \
+            indicating its correct order. \
+            <br><br>For example, 1 would be the first line, 2 would be the second, 3 would be the third, etc. \
+            The numbers should be consecutive, and the largest number should indicate the last line.",
+    },
+    3: {
+        "name": "Fill in the blanks",
+        "description": "Here is the dialogue for the posture with some words missing. \
+        The missing words are indicated by blanks. \
+        <br><br> Fill in the blanks by typing in the correct word in each blank. \
+        <br><br>(You can click the 'tab' key on your keyboard to quickly move from one blank to the next.) \
+        <br><br> Spelling matters.  However, punctuation (including apostrophes) and capitalization do not matter.",
+    },
+    4: {
+        "name": "Give me a random line",
+        "description": "You will be given a line from the posture that is randomly selected. \
+        <br><br>Starting from that line (including that line), type the words of the posture, \
+        all the way through the end of the posture. \
+        <br><br> Spelling matters. \
+        However, punctuation (including apostrophes), capitalization, and spacing do not matter \
+        (so you can write your answer as a single paragraph or many lines).",
+    },
+    5: {
+        "name": "Test me on the whole thing",
+        "description": "In the space below, type out the words of the entire posture. \
+        <br><br> Spelling matters. \
+        However, punctuation (including apostrophes), capitalization, and spacing do not matter \
+        (so you can write your answer as a single paragraph or many lines).",
+    },
+    6: {
+        "name": "Play Round Robin with me",
+        "description": "The computer will provide the first line of the posture. \
+        <br><br> When it is your turn, repeat the computer's last line and provide the next line, typing both lines in the text box. \
+        <br><br> On the computer's turn, it will do the same - repeat your last line and provide the next line. \
+        <br><br> Click the computer turn button to have the computer take its turn. \
+        and click the Submit My Lines button to take your turn and submit your lines. \
+        <br><br> Spelling matters.  However, punctuation (including apostrophes) and capitalization do not matter.",
+    },
+    99: {
+        "name": "Choose for me at random!",
+        "description": "",
+    },
+    100: {
+        "name": "Unselected",
+        "description": "",
+    },
+};
+
 
 
 
@@ -1086,5 +1181,13 @@ const content = {
                 0: "Coming soon!"
             },
         },
+    },
+    99: {
+        "postureName": "chooseRandom",
+        "posturePrintName": "Choose for me at random!",
+    },
+    100: {
+        "postureName": "unselected",
+        "posturePrintName": "Unselected",
     },
 }
