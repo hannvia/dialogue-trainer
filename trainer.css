@@ -21,9 +21,14 @@
   --pink: #FCC1C9;
   --pink-light: #FDE8EA;
   --white: white;
+
+  --orange-dark: #E76B00;
+  --orange-mid: #FF851B;
+  --orange-light: #FFAE68;
+  --orange-tint: #FFD6B3;
 }
 
-#title {
+#title, #credits {
   background-color: var(--aquamarine);
   border-radius: 15px;
 }
@@ -96,6 +101,59 @@ body {
 }
 #section-buttons {
   background-color: var(--green-light);
+}
+
+
+
+
+#strategy-text-container {
+  background-color: var(--orange-tint);
+  border-radius: 15px;
+  padding: 8px;
+  margin-top: 15px;
+  width: 880px;
+  font-size: 18px;
+  line-height: 1.4em;
+}
+
+#strategy-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+#strategy-container {
+  background-color: var(--orange-light);
+  border-radius: 15px;
+  padding: 15px;
+  margin-top: 15px;
+}
+
+.strategy-options-container {
+  display: flex;
+  margin: 10px;
+  border-radius: 15px;
+  height: 40px;
+  width: 240px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 8px;
+}
+
+.strategy-option {
+  height: 10px;
+  border-radius: 9px;
+  margin: 10px 5px;
+  padding: 4px 9px;
+  border: 2px solid;
+  white-space: nowrap;
+  background-color: var(--orange-mid);
+}
+.strategy-option:hover {
+  cursor: pointer;
+  background-color: var(--orange-dark);
+}
+.strategy-option p {
+  margin:0px;
 }
 
 
