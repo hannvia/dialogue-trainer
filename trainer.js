@@ -95,7 +95,7 @@ function showDialogue(postureIndex) {
     const startIndex = content[postureIndex]["postureSections"][trainer.selectedSection][0];
     const endIndex = content[postureIndex]["postureSections"][trainer.selectedSection][1];
     let dialogue = "";
-    for (let i = startIndex; i < endIndex; i++) {
+    for (let i = startIndex; i < endIndex + 1; i++) {
         dialogue += "<b>" + (i < 9 ? "&nbsp;" : "") + (i + 1).toString() + ".&nbsp;&nbsp;</b>" + content[postureIndex]["postureContent"]["lines"][i] + "<br>";
     }
     document.getElementById("show-dialogue-container").innerHTML = "<p>" + dialogue + "</p>";    
@@ -167,7 +167,7 @@ const content = {
     "postureName": "halfMoonSidebend",
     "posturePrintName": "Half Moon Sidebend",
     "postureNumLines": 26,
-    "postureSections": [[0,25], [0,8], [9,20], [21,25]],
+    "postureSections": [[0,25], [0,14], [15,20], [21,24], [25,25]],
     "postureContent": {
         "lines": {
                 0: "Everybody together. Feet together, heels and toes touching each other.",
@@ -208,7 +208,7 @@ const content = {
         "postureName": "halfMoonBackbend",
         "posturePrintName": "Half Moon Backbend",
         "postureNumLines": 13,
-        "postureSections": [[0,12], [0,2], [3,7], [8,12]],
+        "postureSections": [[0,12], [0,2], [3,7], [8,10], [11,12]],
         "postureContent": {
             "lines": {
                 0: "Next is backward bending",
@@ -234,7 +234,7 @@ const content = {
         "postureName": "handsToFeet",
         "posturePrintName": "Hands to Feet",
         "postureNumLines": 22,
-        "postureSections": [[0,21], [0,6], [7,14], [15,21]],
+        "postureSections": [[0,21], [0,6], [7,14], [15,19], [20,21]],
         "postureContent": {
             "lines": {
                 0: "Bend your knees, Place your hands on the floor in front of you",
@@ -271,7 +271,7 @@ const content = {
         "postureName": "awkwardPart1",
         "posturePrintName": "Awkward Part 1",
         "postureNumLines": 20,
-        "postureSections": [[0,19], [0,6], [7,14], [15,19]],
+        "postureSections": [[0,19], [0,6], [7,13], [14,17], [18,19]],
         "postureContent": {
             "lines": {
                 0: "Right foot step to the right, six inches apart, heels invisible behind the toes.", 
@@ -306,7 +306,7 @@ const content = {
         "postureName": "awkwardPart2",
         "posturePrintName": "Awkward Part 2",
         "postureNumLines": 12,
-        "postureSections": [[0,11], [0,5], [6,10], [11,11]],
+        "postureSections": [[0,11], [0,5], [6,7], [8,10], [11,11]],
         "postureContent": {
             "lines": {
                 0: "Concentrate and meditate",
@@ -330,7 +330,7 @@ const content = {
     5: {
         "postureName": "awkwardPart3",
         "posturePrintName": "Awkward Part 3",
-        "postureSections": [[0,9], [0,4], [5,7], [8,9]],
+        "postureSections": [[0,9], [0,2], [3,4], [5,7], [8,9]],
         "postureNumLines": 10,
         "postureContent": {
             "lines": {
