@@ -43,92 +43,60 @@ body {
   padding: 8px;
 }
 
-.posture {
+
+.option {
   height: 20px;
   border-radius: 16px;
   margin: 10px 5px;
   padding: 8px 10px;
-  /* float:left; */
   border: 2px solid;
-  background-color: var(--purple-mid);
   white-space: nowrap;
+}
+.option:hover {
+  cursor: pointer;
+}
+.option p {
+  margin:0px;
+}
+.options-container {
+  display: flex;
+  margin: 10px;
+  border-radius: 15px;
+  height: 80px;
+  width: 880px;
+  overflow-x: scroll;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 8px;
+}
+
+
+.posture {
+  background-color: var(--purple-mid);
 }
 .posture:hover {
-  cursor: pointer;
   background-color: var(--purple-dark);
 }
-.posture p {
-  margin:0px;
-}
 #posture-buttons {
-  display: flex;
-  /* flex-direction: row; */
   background-color: var(--purple-light);
-  margin: 10px;
-  border-radius: 15px;
-  height: 80px;
-  width: 880px;
-  overflow-x: scroll;
-  padding-left: 8px;
-  padding-right: 8px;
-  padding-top: 8px;
-  /* overflow-y: hidden; */
 }
 .activity {
-  height: 20px;
-  border-radius: 16px;
-  margin: 10px 5px;
-  padding: 8px 10px;
-  border: 2px solid;
   background-color: var(--blue-mid);
-  white-space: nowrap;
 }
 .activity:hover {
-  cursor: pointer;
   background-color: var(--blue-dark);
 }
-.activity p {
-  margin:0px;
-}
 #activity-buttons {
-  display: flex;
   background-color: var(--blue-light);
-  margin: 10px;
-  border-radius: 15px;
-  height: 80px;
-  width: 880px;
-  overflow-x: scroll;
-  padding-left: 8px;
-  padding-right: 8px;
-  padding-top: 8px;
 }
 .section {
-  height: 20px;
-  border-radius: 16px;
-  margin: 10px 5px;
-  padding: 8px 10px;
-  border: 2px solid;
   background-color: var(--green-mid);
-  white-space: nowrap;
 }
 .section:hover {
-  cursor: pointer;
   background-color: var(--green-dark);
 }
-.section p {
-  margin:0px;
-}
 #section-buttons {
-  display: flex;
   background-color: var(--green-light);
-  margin: 10px;
-  border-radius: 15px;
-  height: 80px;
-  width: 880px;
-  overflow-x: scroll;
-  padding-left: 8px;
-  padding-right: 8px;
-  padding-top: 8px;
 }
 
 
