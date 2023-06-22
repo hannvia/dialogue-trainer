@@ -5,6 +5,9 @@ class Trainer {
         this.selectedPosture = 100;
         this.selectedActivity = 100;
 
+        // default section is 0 which shows entire posture
+        this.selectedSection = 0;
+
         // for specific activities
         this.incrementIndex = 0;
     };
@@ -18,6 +21,10 @@ class Trainer {
         // come back and update this random later
         const selectedActivity = activityIndex != 99 ? activityIndex : Math.floor(Math.random() * 2);
         this.selectedActivity = selectedActivity;
+    };
+
+    setSelectedSection(sectionIndex) {
+        this.selectedSection = sectionIndex;
     };
 
     // for specific activities 
@@ -42,6 +49,10 @@ function selectPosture(postureIndex) {
 };
 function selectActivity(activityIndex) {
     trainer.setSelectedActivity(activityIndex);
+    renderPractice();
+};
+function selectSection(sectionIndex) {
+    trainer.setSelectedSection(sectionIndex);
     renderPractice();
 };
 
@@ -81,8 +92,10 @@ function renderPractice() {
 // for Activity 0, Show Dialogue
 //
 function showDialogue(postureIndex) {
+    const startIndex = content[postureIndex]["postureSections"][trainer.selectedSection][0];
+    const endIndex = content[postureIndex]["postureSections"][trainer.selectedSection][1];
     let dialogue = "";
-    for (let i = 0; i < content[postureIndex]["postureNumLines"]; i++) {
+    for (let i = startIndex; i < endIndex; i++) {
         dialogue += "<b>" + (i < 9 ? "&nbsp;" : "") + (i + 1).toString() + ".&nbsp;&nbsp;</b>" + content[postureIndex]["postureContent"]["lines"][i] + "<br>";
     }
     document.getElementById("show-dialogue-container").innerHTML = "<p>" + dialogue + "</p>";    
