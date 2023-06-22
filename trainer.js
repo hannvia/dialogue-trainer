@@ -11,7 +11,7 @@ class Trainer {
 
     setSelectedPosture(postureIndex) {
         // come back and update this random later
-        const selectedPosture = postureIndex != 99 ? postureIndex : Math.floor(Math.random() * 27);
+        const selectedPosture = postureIndex != 99 ? postureIndex : Math.floor(Math.random() * 31);
         this.selectedPosture = selectedPosture;
     };
 
