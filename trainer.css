@@ -14,6 +14,10 @@
   --blue-mid: #ACD8E6;
   --blue-light: #E7F4F8;
 
+  --green-dark: #B4CE5E;
+  --green-mid: #D8E6AC;
+  --green-light: #F4F8E7;
+
   --pink: #FCC1C9;
   --pink-light: #FDE8EA;
   --white: white;
@@ -88,7 +92,6 @@ body {
 }
 #activity-buttons {
   display: flex;
-  /* flex-direction: row; */
   background-color: var(--blue-light);
   margin: 10px;
   border-radius: 15px;
@@ -98,8 +101,36 @@ body {
   padding-left: 8px;
   padding-right: 8px;
   padding-top: 8px;
-  /* overflow-y: hidden; */
 }
+.section {
+  height: 20px;
+  border-radius: 16px;
+  margin: 10px 5px;
+  padding: 8px 10px;
+  border: 2px solid;
+  background-color: var(--green-mid);
+  white-space: nowrap;
+}
+.section:hover {
+  cursor: pointer;
+  background-color: var(--green-dark);
+}
+.section p {
+  margin:0px;
+}
+#section-buttons {
+  display: flex;
+  background-color: var(--green-light);
+  margin: 10px;
+  border-radius: 15px;
+  height: 80px;
+  width: 880px;
+  overflow-x: scroll;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 8px;
+}
+
 
 
 
