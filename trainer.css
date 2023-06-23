@@ -181,12 +181,13 @@ body {
 
 
 #question-description-container {
-  /* border-radius: 0px 15px 15px 0px;
+  /* border-radius: 0px 15px 15px 0px; */
+  border-radius: 15px;
   padding: 15px;
   margin-top: 15px;
   background-color: var(--white);
-  width: 300px;
-  text-align: left; */
+  width: 240px;
+  text-align: left;
 }
 #question-container {
   background-color: var(--pink-light);
@@ -218,4 +219,141 @@ body {
 }
 #increment-container p {
   text-align: left;
+}
+
+
+
+
+
+
+
+
+#answer-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 420px;
+  background-color: #D8E6AC;
+  border-radius: 15px;
+  padding: 0px;
+  margin-top: 15px;
+}
+
+
+.answer {
+  height: 20px;
+  border-radius: 15px;
+  margin: 10px 10px;
+  padding: 8px;
+  /* float:left; */
+  border: 2px #2f4f4f solid;
+  background-color: #ABC84A;
+}
+.answer:hover {
+  cursor: pointer;
+  background-color: #90AB34;
+}
+.answer p {
+  margin:0px;
+}
+
+#check-my-answer-feedback-container {
+  width: 400px;
+  background-color: #FCF4C1;
+  border-radius: 0px 0px 15px 15px;
+  padding: 10px;
+  word-wrap: break-word;
+}
+
+#check-my-answer-feedback {
+  width: 386px;
+  background-color: #B4CE5E;
+  border-radius: 15px;
+  padding: 7px;
+}
+#show-answer-feedback {
+  width: 386px;
+  background-color: #ACD8E6;
+  border-radius: 15px;
+  padding: 7px;
+}
+
+
+input[type="text"] {
+  font-size:16px;
+}
+
+textarea {
+  height: 300px;
+  width: 700px;
+  font-size:16px;
+  border-radius: 5px;
+}
+
+#answer-container-1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 420px;
+  background-color: #FCF4C1;
+  border-radius: 15px 15px 0px 0px;
+  border-bottom: 1px #2f4f4f dashed;
+  padding: 0px;
+  margin-top: 15px;
+}
+
+#r0 {
+  height: 20px;
+  border-radius: 15px;
+  margin: 10px 10px;
+  padding: 8px;
+  border: 2px #2f4f4f solid;
+  background-color: #B4CE5E;
+}
+#r0:hover {
+  cursor: pointer;
+  background-color: #90AB34;
+}
+#r0 p {
+  margin:0px;
+}
+
+#r1 {
+  height: 20px;
+  border-radius: 15px;
+  margin: 10px 10px;
+  padding: 8px;
+  border: 2px #2f4f4f solid;
+  background-color: #ACD8E6;
+}
+#r1:hover {
+  cursor: pointer;
+  background-color: #85C6DA;
+}
+#r1 p {
+  margin:0px;
+}
+
+#r2 {
+  height: 20px;
+  border-radius: 15px;
+  margin: 10px 10px;
+  padding: 8px;
+  border: 2px #2f4f4f solid;
+  background-color: #C1C9FC;
+}
+#r2:hover {
+  cursor: pointer;
+  background-color: #909FFA;
+}
+#r2 p {
+  margin:0px;
+}
+#unscramble-container {
+  text-align: left;
+}
+
+.unscramble-answer {
+  width: 24px;
+  height: 20px;
 }

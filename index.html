@@ -73,6 +73,10 @@
       <div class="options-container" id="activity-buttons">
         <div class="option activity" id="activity-0" onclick="selectActivity(0)"><p>Show Dialogue</p></div>
         <div class="option activity" id="activity-1" onclick="selectActivity(1)"><p>Increment</p></div>
+        <div class="option activity" id="activity-2" onclick="selectActivity(2)"><p>Unscramble</p></div>
+        <div class="option activity" id="activity-3" onclick="selectActivity(3)"><p>Fill in the blanks</p></div>
+        <div class="option activity" id="activity-4" onclick="selectActivity(4)"><p>Give me a random line</p></div>
+        <div class="option activity" id="activity-5" onclick="selectActivity(5)"><p>Test me on the whole thing</p></div>
         <div class="option activity" id="activity-99" onclick="selectActivity(99)"><p>Choose for me at random!</p></div>
       </div>
     </div>
@@ -96,20 +100,38 @@
   <div id="practice-container">
     <h2>Practicing Now</h2>
     <p>When you have selected a posture and activity, your activity will be available for you to practice here.</p>
-
+    
     <div id="practice-content">
-
-      <div id="question-description-container">
-        <div id="question-description"></div>
-      </div>
 
       <div id="question-container">
         <p id="selection-text"></p>
         <div id="show-dialogue-container"></div>
         <div id="increment-container"></div>
+        <div id="unscramble-container"></div>
+        <div id="fill-blanks-container"></div>
+        <div id="random-line-container"></div>
+        <div id="test-whole-container"></div>
+      </div>
+
+      <div id="question-description-container">
+        <div id="question-description"></div>
       </div>
       
     </div>
+
+    <p>When you are done, check your answer to see feedback.</p>
+
+    <div id="answer-container-1">
+      <div class="answer-1" id="r0" onClick="checkMyAnswer()"><p>Check my answer</p></div>
+      <div class="answer-1" id="r1" onClick="showAnswer()"><p>Show answer</p></div>
+      <div class="answer-1" id="r2" onClick="selectR()"><p>Refresh</p></div>
+    </div>
+
+    <div id="check-my-answer-feedback-container">
+      <div id="check-my-answer-feedback"></div>
+      <div id="show-answer-feedback"></div>
+    </div>
+
   </div>
 
 
@@ -119,7 +141,7 @@
     <p>
       Techniques for memorization, drawn from educational pedagogy and cognitive science. 
       <br> Feel free to sample and see what works for you. 
-      <br> When you have selected via one of the orange or purple buttons below, your strategy will show up here.
+      <br> Click the orange or purple buttons below to display the strategies. 
     </p>
 
     <div id="strategy-content">

@@ -8,11 +8,22 @@ class Trainer {
         // default section is 0 which shows entire posture
         this.selectedSection = 0;
 
-        // for specific activities
-        this.incrementIndex = 0;
-
         // for strategies, 100 denotes not selected 
         this.selectedStrategy = 100;
+
+        // for specific activities
+        this.incrementIndex = 0;  
+
+
+        
+        // correct answer to current question (possibly as multiple arrays)
+        this.currentCorrectAnswer = "";
+        // other options 
+        this.currentCorrectAnswerSingleArray = [];
+        this.currentCorrectAnswerDisplay = "";  // html string 
+
+        // user submitted answer
+        this.submittedAnswer = "";
     };
 
     setSelectedPosture(postureIndex) {
@@ -41,6 +52,26 @@ class Trainer {
     refresh() {
         this.incrementIndex = 0;
     };
+
+
+
+    setCurrentCorrectAnswer(currentCorrectAnswer) {
+        this.currentCorrectAnswer = currentCorrectAnswer;
+        //console.log("set current correct answer to", currentCorrectAnswer);
+    };
+    setCurrentCorrectAnswerSingleArray(currentCorrectAnswerSingleArray) {
+        this.currentCorrectAnswerSingleArray = currentCorrectAnswerSingleArray;
+        //console.log("set current correct answer single array to", currentCorrectAnswerSingleArray);
+    };
+    setCurrentCorrectAnswerDisplay(currentCorrectAnswerDisplay) {
+        this.currentCorrectAnswerDisplay = currentCorrectAnswerDisplay;
+        //console.log("set current correct answer display to", currentCorrectAnswerDisplay);
+    };
+    setSubmittedAnswer(submittedAnswer) {
+        this.submittedAnswer = submittedAnswer;
+        //console.log("set submitted answer to", submittedAnswer);
+    };
+    
 
 };
 
@@ -96,7 +127,15 @@ function generateSelectionText() {
 function clearPractice() {
     // clears practice section
     document.getElementById("show-dialogue-container").innerHTML = ""; 
-    document.getElementById("increment-container").innerHTML = ""; 
+    document.getElementById("increment-container").innerHTML = "";
+    
+    
+    document.getElementById("unscramble-container").innerHTML = ""; 
+    document.getElementById("fill-blanks-container").innerHTML = ""; 
+    document.getElementById("random-line-container").innerHTML = ""; 
+    document.getElementById("test-whole-container").innerHTML = ""; 
+    document.getElementById("check-my-answer-feedback").innerHTML = ""; 
+    document.getElementById("show-answer-feedback").innerHTML = "";
 };
 
 
@@ -118,13 +157,27 @@ function renderStrategy() {
 function renderPractice() {
     clearPractice();
     generateSelectionText();
+    generateActivityDescription();
     
     if (trainer.selectedPosture != 100) {
         if (trainer.selectedActivity == 0) {
             showDialogue(trainer.selectedPosture);
-        } else if (trainer.selectedActivity == 1) {
+        } 
+        else if (trainer.selectedActivity == 1) {
             increment(trainer.selectedPosture);
+        } 
+        else if (trainer.selectedActivity == 2) {
+            unscramble(trainer.selectedPosture);
         }
+        else if (trainer.selectedActivity == 3) {
+            fillBlanks(trainer.selectedPosture);
+        }
+        else if (trainer.selectedActivity == 4) {
+            randomLine(trainer.selectedPosture);
+        }
+        else if (trainer.selectedActivity == 5) {
+            testWhole(trainer.selectedPosture);
+        };
     };
 };
 
@@ -197,6 +250,468 @@ function increment(postureIndex) {
         incrementButtonsContainer + "<p>" + dialogue + "</p>";    
 };
 
+
+
+
+
+//
+//
+//
+//
+//
+//
+//
+
+function selectR() {
+    // refresh practice section with existing selections
+    renderPractice();
+    // clear any existing feedback
+    document.getElementById("check-my-answer-feedback").innerHTML = "";
+    document.getElementById("show-answer-feedback").innerHTML = "";
+};
+
+// populate description of selected activity 
+//
+function generateActivityDescription() {
+    const activityDescription = activityMap[trainer.selectedActivity]["description"];
+    const descriptionText = "<p><b>Activity Instructions:</b><br><br>" + activityDescription + "</p>";
+    document.getElementById("question-description").innerHTML = descriptionText;
+};
+
+function checkMyAnswer() {
+    // show dialogue 
+    if (trainer.selectedActivity == 0) {
+        scoreShowDialogue();
+    };
+    // increment 
+    if (trainer.selectedActivity == 1) {
+        scoreIncrement();
+    };
+    // unscramble 
+    if (trainer.selectedActivity == 2) {
+        scoreUnscramble();
+    };
+    // fill blanks
+    if (trainer.selectedActivity == 3) {
+        scoreFillBlanks();
+    };
+    // random line
+    if (trainer.selectedActivity == 4) {
+        scoreRandomLine();
+    };
+    // test whole
+    if (trainer.selectedActivity == 5) {
+        scoreTestWhole();
+    };
+};
+
+function showAnswer() {
+    // show dialogue 
+    if (trainer.selectedActivity == 0) {
+        showAnswerShowDialogue();
+    };
+    // increment 
+    if (trainer.selectedActivity == 1) {
+        showAnswerIncrement();
+    };
+    // unscramble
+    if (trainer.selectedActivity == 2) {
+        showAnswerUnscramble();
+    };
+    // fill blanks
+    if (trainer.selectedActivity == 3) {
+        showAnswerFillBlanks();
+    };
+    // random line
+    if (trainer.selectedActivity == 4) {
+        showAnswerRandomLine();
+    };
+    // test whole
+    if (trainer.selectedActivity == 5) {
+        showAnswerTestWhole();
+    };
+};
+
+
+function scoreShowDialogue() {
+    document.getElementById("check-my-answer-feedback").innerHTML = "Not applicable for this activity";
+};
+
+function showAnswerShowDialogue() {
+    document.getElementById("show-answer-feedback").innerHTML = "Not applicable for this activity";
+};
+
+
+// for Activity 1, Unscramble
+//
+function fisherYatesShuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1)); // random index from 0 to i
+      [array[i], array[j]] = [array[j], array[i]];
+    };
+    return array;
+  }
+
+function unscramble(postureIndex) {
+    clearPractice();
+    const startIndex = content[postureIndex]["postureSections"][trainer.selectedSection][0];
+    const endIndex = content[postureIndex]["postureSections"][trainer.selectedSection][1];
+    let lineIndices = [];
+    for (let i = startIndex; i < endIndex+1; i++) {
+        lineIndices.push(i);
+    };
+    const scrambledLineIndices = fisherYatesShuffle(lineIndices);
+
+    // the actual correct answer needs to be shifted
+    let scrambledLineIndices1Index = [];
+
+    let scrambled = "";
+    for (let i = 0; i < scrambledLineIndices.length; i++) {
+        scrambled += '<input type="text" class="unscramble-answer"/>' + " ";
+        scrambled += content[postureIndex]["postureContent"]["lines"][scrambledLineIndices[i]] + "<br>";
+        scrambledLineIndices1Index.push(scrambledLineIndices[i] + 1 - startIndex);
+    };
+
+    
+    trainer.setCurrentCorrectAnswer(scrambledLineIndices1Index);
+    document.getElementById("unscramble-container").innerHTML = "<p>" + scrambled + "</p>";    
+};
+
+function scoreUnscramble() {
+    const correctAnswer = trainer.currentCorrectAnswer;
+    const answerElements = document.getElementsByClassName("unscramble-answer");
+
+    let answerValues = [];
+    for (let i = 0; i < answerElements.length; i++) {
+        answerValues.push(answerElements[i].value);
+    };
+    trainer.setSubmittedAnswer(answerValues.toString());
+    console.log('correct answer answer values', correctAnswer, answerValues)
+
+    let numCorrect = 0;
+    for (let i = 0; i < answerElements.length; i++) {
+        if (correctAnswer[i].toString() == answerValues[i]) {
+            console.log('correct', correctAnswer[i].toString, answerValues[i])
+            numCorrect++;
+        };
+    };
+    let displayResult = "";
+    displayResult += "<p><b>Correct answers are: </b>" + correctAnswer.toString() + "</p>";
+    displayResult += "<p><b>Your answers are: </b>" + answerValues.toString() + "</p>";
+    displayResult += "<p><b>Number correct: " + numCorrect.toString() + " out of " + answerElements.length.toString() + "</b></p>";
+    document.getElementById("check-my-answer-feedback").innerHTML = displayResult;
+};
+
+function showAnswerUnscramble() {
+    document.getElementById("show-answer-feedback").innerHTML = "<p>Answer is: <br>" + trainer.currentCorrectAnswer + "</p>";
+};
+
+
+
+
+function fillBlanks(postureIndex) {
+    clearPractice();
+    const startIndex = content[postureIndex]["postureSections"][trainer.selectedSection][0];
+    const endIndex = content[postureIndex]["postureSections"][trainer.selectedSection][1];
+    let lineIndices = [];
+    for (let i = startIndex; i < endIndex+1; i++) {
+        lineIndices.push(i);
+    };
+
+    // all words, array of arrays
+    let allWords = [];
+    let allWordsCleaned = [];
+
+    let allWordsIndicesScrambled = [];
+    let allWordsIndices = [];
+
+    for (let i = 0; i < lineIndices.length; i++) {
+        const line = content[postureIndex]["postureContent"]["lines"][lineIndices[i]];
+        const lineCleaned = line.replace(/[^\p{L}\p{Z}]/gu, '');
+        const wordsInLine = line.split(" ");
+        const wordsInLineCleaned = lineCleaned.split(" ");
+        allWords.push(wordsInLine);
+        allWordsCleaned.push(wordsInLineCleaned);
+
+        const numWordsInLine = line.split(" ").length;
+        let wordsIndices = [];
+        for (let i = 0; i < numWordsInLine; i++) {
+            wordsIndices.push(i);
+        };
+        allWordsIndices.push(wordsIndices);
+        const scrambledWordsIndices = fisherYatesShuffle(wordsIndices);
+
+        allWordsIndicesScrambled.push(scrambledWordsIndices);
+
+    };
+    console.log("all words indices scrambled", allWordsIndicesScrambled);
+    console.log('all words', allWords)
+    console.log('all words cleaned', allWordsCleaned);
+
+    let allBlankWordsCleaned = []; // array of arrays
+
+    let allBlankWords = []; // array of arrays
+    let allBlankWordsSingleArray = []; // this is a single array
+    let display = "";
+    for (let i = 0; i < allWords.length; i++) {
+        // array of original words in line 
+        const wordsInLine = allWords[i];
+
+        // array of scrambled indices for line
+        const scrambledIndicesForLine = allWordsIndicesScrambled[i];
+
+        const numWordsInLine = wordsInLine.length;
+        const numBlanksInLine = Math.floor(numWordsInLine * 0.4);
+        const blanksIndices = scrambledIndicesForLine.slice(0, numBlanksInLine);
+        console.log('num blanks in line and blanks indices', numBlanksInLine, scrambledIndicesForLine, blanksIndices)
+
+        let blankWordsInLine = [];
+        let blankWordsInLineCleaned = [];
+        let displayForLine = "";
+        for (let j = 0; j < numWordsInLine; j++) {
+            if (blanksIndices.includes(j)) {
+                displayForLine += '<input type="text" style="width: 50px;" class="fill-blanks-answer">' + " ";
+                blankWord = wordsInLine[j];
+                blankWordsInLine.push(blankWord);
+                blankWordsInLineCleaned.push(blankWord.replace(/[^\p{L}]/gu, '').toLowerCase())
+                allBlankWordsSingleArray.push(blankWord);
+                // show periods and commas if any 
+                if (wordsInLine[j].slice(-1) == ',') {
+                    displayForLine += ', '
+                }
+                if (wordsInLine[j].slice(-1) == '.') {
+                    displayForLine += '. '
+                }
+            } else {
+                displayForLine += wordsInLine[j] + " ";
+            };
+        };
+
+        // this will have punctuation 
+        allBlankWords.push(blankWordsInLine);
+        //console.log('all blank words', allBlankWords);
+
+        allBlankWordsCleaned.push(blankWordsInLineCleaned);
+
+        //console.log('all blank words single array', allBlankWordsSingleArray);
+        //console.log('display for line', i, displayForLine);
+
+        display += displayForLine + "<br>";
+        
+    };
+
+    let allBlankWordsSingleArrayCleaned = []
+    for (let i = 0; i < allBlankWordsSingleArray.length; i++) {
+        const word = allBlankWordsSingleArray[i];
+        const wordCleaned = word.replace(/[^\p{L}]/gu, '').toLowerCase();
+        allBlankWordsSingleArrayCleaned.push(wordCleaned);
+    };
+    trainer.setCurrentCorrectAnswer(allBlankWordsCleaned);
+    //console.log('current correct answer', trainer.currentCorrectAnswerCleaned);
+    trainer.setCurrentCorrectAnswerSingleArray(allBlankWordsSingleArrayCleaned);
+
+    console.log(display);
+
+    let answer = "";
+    answer += "<p>";
+    for (let i = 0; i < trainer.currentCorrectAnswer.length; i++) {
+        answer += trainer.currentCorrectAnswer[i].toString() + "<br>";
+    };
+    answer += "</p>"
+    trainer.setCurrentCorrectAnswerDisplay(answer);
+
+    document.getElementById("unscramble-container").innerHTML = "<p>" + display + "</p>";    
+};
+
+function scoreFillBlanks() {
+    const correctAnswer = trainer.currentCorrectAnswerSingleArray;
+    const answerElements = document.getElementsByClassName("fill-blanks-answer");
+    //console.log(answerElements.length, 'length of answer elements');
+    let answerValues = [];
+    for (let i = 0; i < answerElements.length; i++) {
+        const word = answerElements[i].value;
+        const wordCleaned = word.replace(/[^\p{L}]/gu, '').toLowerCase()
+        answerValues.push(wordCleaned);
+    };
+    trainer.setSubmittedAnswer(answerValues.toString());
+    //console.log("scoring fill blanks", correctAnswer, answerValues);
+    let numCorrect = 0;
+    for (let i = 0; i < answerElements.length; i++) {
+        if (correctAnswer[i].toString() == answerValues[i]) {
+            numCorrect++;
+        };
+    };
+    let displayResult = "";
+    displayResult += "<p><b>Correct answers are: </b>" + trainer.currentCorrectAnswerDisplay + "</p>";
+    displayResult += "<p><b>Your answers are: </b>" + answerValues.toString() + "</p>";
+    displayResult += "<p><b>Number correct: " + numCorrect.toString() + " out of " + answerElements.length.toString() + "</b></p>";
+    document.getElementById("check-my-answer-feedback").innerHTML = displayResult;
+};
+
+function showAnswerFillBlanks() {
+    //console.log('showing answer fill blanks');
+    const answer = "<p><b>Answer is: </b><br>" + trainer.currentCorrectAnswerDisplay + "</p>";
+
+    document.getElementById("show-answer-feedback").innerHTML = answer;
+};
+
+function randomLine(postureIndex) {
+    clearPractice();
+    // show question
+    const startIndex = content[postureIndex]["postureSections"][trainer.selectedSection][0];
+    const endIndex = content[postureIndex]["postureSections"][trainer.selectedSection][1];
+    const randomIndex = Math.floor(Math.random() * (endIndex - startIndex + 1) + startIndex);
+    const randomLine = content[postureIndex]["postureContent"]["lines"][randomIndex];
+    
+    let display = "";
+
+    let text = "";
+    text += "<p>Your random line is:<p>";
+    text += "<p><b><u>" + randomLine + "</u></b></p>"; 
+    text += "<p>Type the content for the posture below, <br> Starting from this line (including this line), all the way to the end of the posture.</p>";
+    display += text;
+
+    let submissionBox = '<textarea id="test-whole-textbox" style="">';
+    display += submissionBox;
+   
+    document.getElementById("random-line-container").innerHTML = display; 
+
+    // dialogue as single string, remove all nonalpha characters 
+    let dialogueSingleString = "";
+    
+    // generate correct answer
+    let dialogue = "";
+    for (let i = randomIndex; i < endIndex+1; i++) {
+        dialogue += content[postureIndex]["postureContent"]["lines"][i] + "<br>";
+        dialogueSingleString += content[postureIndex]["postureContent"]["lines"][i].replace(/[^\p{L}\p{Z}]/gu, '') + " ";
+    }
+
+    //console.log('dialogue single string', dialogueSingleString)
+    trainer.setCurrentCorrectAnswer(dialogueSingleString)
+
+    const answerDisplay = "<div style='text-align:left;'>" + dialogue + "</div>";
+    trainer.setCurrentCorrectAnswerDisplay(answerDisplay);
+};
+
+function scoreRandomLine() {
+    scoreTestWhole();
+}
+function showAnswerRandomLine() {
+    showAnswerTestWhole();
+}
+
+function testWhole(postureIndex) {
+    clearPractice();
+    // show question 
+    let display = "<p>Type the content for the posture below.</p>";
+    let submissionBox = '<textarea id="test-whole-textbox" style="">';
+    display += submissionBox;
+    document.getElementById("test-whole-container").innerHTML = display; 
+    
+    // dialogue as single string, remove all nonalpha characters 
+    let dialogueSingleString = "";
+    
+    // generate correct answer 
+    const startIndex = content[postureIndex]["postureSections"][trainer.selectedSection][0];
+    const endIndex = content[postureIndex]["postureSections"][trainer.selectedSection][1];
+    let dialogue = "";
+    for (let i = startIndex; i < endIndex+1; i++) {
+        dialogue += content[postureIndex]["postureContent"]["lines"][i] + "<br>";
+        dialogueSingleString += content[postureIndex]["postureContent"]["lines"][i].replace(/[^\p{L}\p{Z}]/gu, '') + " ";
+    };
+
+    //console.log('dialogue single string', dialogueSingleString)
+    trainer.setCurrentCorrectAnswer(dialogueSingleString)
+
+    const answerDisplay = "<div style='text-align:left;'>" + dialogue + "</div>";
+    trainer.setCurrentCorrectAnswerDisplay(answerDisplay);
+};
+
+function scoreTestWhole() {
+    let userAnswer = document.getElementById("test-whole-textbox").value;
+    const userAnswerDisplay = userAnswer.replace(/\n/g, "<br>")
+
+    // replace new line with space, remove multiple spaces, remove anything that is not space or letter
+    let userAnswerCleaned = userAnswer.replace(/\n/g, " ").replace(/[^\p{L}\p{Z}]/gu, '').toLowerCase();
+    //console.log('user answer cleaned0', userAnswerCleaned)
+    userAnswerCleaned = userAnswerCleaned.replace(/\s+/g, ' ').trim();
+    //console.log('user answer cleaned1', userAnswerCleaned)
+    // array of words in user answer
+    const userAnswerCleanedWords = userAnswerCleaned.split(" ");
+
+    let answerCleaned = trainer.currentCorrectAnswer.toLowerCase()
+    answerCleaned = answerCleaned.replace(/\s+/g, ' ').trim();
+    answerCleanedWords = answerCleaned.split(" ");
+    const numWords = answerCleanedWords.length;
+
+    //console.log('user answer', userAnswer);
+    //console.log("user answer cleaned words", userAnswerCleanedWords)
+    //console.log('answer cleaned words', answerCleaned, answerCleanedWords)
+
+    
+    // compute number correct 
+    let numCorrect = 0;
+    // build frequencies of words in user answer and answer
+    let userWordsFreq = {};
+    for (let i = 0; i < userAnswerCleanedWords.length; i++) {
+        word = userAnswerCleanedWords[i];
+        if (word in userWordsFreq) {
+            userWordsFreq[word] += 1;
+        } else {
+            userWordsFreq[word] = 1;
+        };
+    };
+    let answerWordsFreq = {};
+    for (let i = 0; i < answerCleanedWords.length; i++) {
+        word = answerCleanedWords[i];
+        if (word in answerWordsFreq) {
+            answerWordsFreq[word] += 1;
+        } else {
+            answerWordsFreq[word] = 1;
+        };
+    };
+    //console.log('user words freq', userWordsFreq)
+    //console.log('answer words freq', answerWordsFreq)
+
+    // for word in user words, if freq is at most what it is in answer words freq 
+    // then add freq to score
+    // if it is greater, then add answer words freq
+    for (word in userWordsFreq) {
+        if (word in answerWordsFreq) {
+            if (userWordsFreq[word] <= answerWordsFreq[word]) {
+                
+                numCorrect += userWordsFreq[word];
+            } else {
+                numCorrect += answerWordsFreq[word];
+            };
+            //console.log(word, numCorrect)
+        };
+    };
+
+
+
+    let displayResult = "";
+    displayResult += "<p><b>Correct answer is: </b>" + trainer.currentCorrectAnswerDisplay + "</p>";
+    displayResult += "<p><b>Your answer is: </b>" + "<div style='text-align: left;'>" + userAnswerDisplay + "</div>" + "</p>";
+    displayResult += "<p><b>Number correct: " + numCorrect.toString() + " out of " + numWords.toString() + " words</b></p>" ;
+
+    document.getElementById("check-my-answer-feedback").innerHTML = displayResult;
+}
+function showAnswerTestWhole() {
+    const display = trainer.currentCorrectAnswerDisplay;
+    const answer = "<p><b>Answer is: </b><br>" + display + "</p>";
+
+    document.getElementById("show-answer-feedback").innerHTML = answer;
+}
+
+
+//
+//
+//
+//
+//
+//
+//
 
 
 
