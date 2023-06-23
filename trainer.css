@@ -258,21 +258,23 @@ body {
 }
 
 #check-my-answer-feedback-container {
-  width: 400px;
-  background-color: #FCF4C1;
+  width: 860px;
+  background-color: var(--yellow);
   border-radius: 0px 0px 15px 15px;
   padding: 10px;
   word-wrap: break-word;
+  display: flex;
+  justify-content: space-between;
 }
 
 #check-my-answer-feedback {
-  width: 386px;
+  width: 410px;
   background-color: #B4CE5E;
   border-radius: 15px;
   padding: 7px;
 }
 #show-answer-feedback {
-  width: 386px;
+  width: 410px;
   background-color: #ACD8E6;
   border-radius: 15px;
   padding: 7px;
@@ -294,8 +296,8 @@ textarea {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  width: 420px;
-  background-color: #FCF4C1;
+  width: 880px;
+  background-color: var(--yellow);
   border-radius: 15px 15px 0px 0px;
   border-bottom: 1px #2f4f4f dashed;
   padding: 0px;
