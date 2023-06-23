@@ -30,6 +30,10 @@ class Trainer {
         this.selectedSection = sectionIndex;
     };
 
+    setSelectedStrategy(strategyIndex) {
+        this.selectedStrategy = strategyIndex;
+    };
+
     // for specific activities 
     increment() {
         this.incrementIndex += 1;
@@ -44,7 +48,7 @@ class Trainer {
 //
 const trainer = new Trainer();
 
-// select posture, activity, or strategy 
+// select posture, activity, or section
 //
 function selectPosture(postureIndex) {
     trainer.setSelectedPosture(postureIndex);
@@ -58,6 +62,7 @@ function selectSection(sectionIndex) {
     trainer.setSelectedSection(sectionIndex);
     renderPractice();
 };
+
 
 // for specific activities 
 function incrementClick() {
@@ -93,6 +98,19 @@ function clearPractice() {
     document.getElementById("show-dialogue-container").innerHTML = ""; 
     document.getElementById("increment-container").innerHTML = ""; 
 };
+
+
+// select strategy 
+function selectStrategy(strategyIndex) {
+    trainer.setSelectedStrategy(strategyIndex);
+    renderStrategy();
+};
+
+// render strategy based on selected strategy button 
+// 
+function renderStrategy() {
+    document.getElementById("strategy-text").innerHTML = "<p>" + strategyMap[trainer.selectedStrategy] + "</p>";   
+}
 
 
 // render activity based on selected posture and activity
@@ -253,6 +271,16 @@ const activityMap = {
         "name": "Unselected",
         "description": "",
     },
+};
+const strategyMap = {
+    0: "Strategy 0",
+    1: "Strategy 1",
+    2: "Strategy 2",
+    3: "Strategy 3",
+    4: "Strategy 4",
+    5: "Strategy 5",
+    6: "Strategy 6",
+    100: "",
 };
 
 
