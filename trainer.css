@@ -2,6 +2,7 @@
   --teal-dark: #2F4F4F;
 
   --aquamarine: #ACE6D7;
+  --aquamarine-light: #DDF5EF;
   --aquamarine-tint: #F6FCFB;
 
   --yellow: #FCF4C1;
@@ -28,7 +29,7 @@
   --orange-tint: #FFD6B3;
 }
 
-#title, #credits {
+#title {
   background-color: var(--aquamarine);
   border-radius: 15px;
 }
@@ -51,7 +52,7 @@ body {
 .option {
   height: 20px;
   border-radius: 16px;
-  margin: 10px 5px;
+  margin: 8px 5px;
   padding: 8px 10px;
   border: 2px solid;
   white-space: nowrap;
@@ -107,7 +108,7 @@ body {
 
 
 #strategy-text-container {
-  background-color: var(--orange-tint);
+  background-color: var(--aquamarine-light);
   border-radius: 15px;
   padding: 8px;
   margin-top: 15px;
@@ -123,7 +124,7 @@ body {
   justify-content: center;
 }
 #strategy-container {
-  background-color: var(--orange-light);
+  background-color: var(--aquamarine);
   border-radius: 15px;
   padding: 15px;
   margin-top: 15px;
@@ -133,7 +134,7 @@ body {
   display: flex;
   border-radius: 15px;
   height: 42px;
-  width: 240px;
+  width: 300px;
   justify-content: space-between;
   margin: 4px;
   /* padding-left: 8px;
@@ -152,14 +153,24 @@ body {
   padding: 4px 9px; */
   border: 2px solid;
   white-space: nowrap;
-  background-color: var(--orange-mid);
 }
 .strategy-option:hover {
   cursor: pointer;
-  background-color: var(--orange-dark);
 }
 .strategy-option p {
   margin:0px;
+}
+.color-0 {
+  background-color: var(--orange-mid);
+}
+.color-0:hover{
+  background-color: var(--orange-dark);
+}
+.color-1 {
+  background-color: var(--purple-mid);
+}
+.color-1:hover{
+  background-color: var(--purple-dark);
 }
 
 
