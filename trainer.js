@@ -10,6 +10,9 @@ class Trainer {
 
         // for specific activities
         this.incrementIndex = 0;
+
+        // for strategies, 100 denotes not selected 
+        this.selectedStrategy = 100;
     };
 
     setSelectedPosture(postureIndex) {
