@@ -22,6 +22,7 @@
 
   --pink: #FCC1C9;
   --pink-light: #FDE8EA;
+  --pink-tint: #FEF5F6;
   --white: white;
 
   --orange-dark: #E76B00;
@@ -220,6 +221,21 @@ body {
 }
 #increment-container p {
   text-align: left;
+}
+
+
+
+#question-short-description-container {
+  /* border-radius: 0px 15px 15px 0px; */
+  border-radius: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  /* padding: 15px; */
+  /* margin-top: 15px; */
+  background-color: var(--pink-tint);
+  width: 800px;
+  font-size: 16px;
+  /* text-align: left; */
 }
 
 
