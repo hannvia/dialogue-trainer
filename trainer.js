@@ -278,7 +278,7 @@ function generateActivityDescription() {
     document.getElementById("question-description").innerHTML = descriptionText;
 };
 
-function checkMyAnswer() {
+function checkAnswer() {
     // show dialogue 
     if (trainer.selectedActivity == 0) {
         scoreShowDialogue();
@@ -341,8 +341,15 @@ function showAnswerShowDialogue() {
     document.getElementById("show-answer-feedback").innerHTML = "Not applicable for this activity";
 };
 
+function scoreIncrement() {
+    document.getElementById("check-my-answer-feedback").innerHTML = "Not applicable for this activity";
+};
 
-// for Activity 1, Unscramble
+function showAnswerIncrement() {
+    document.getElementById("show-answer-feedback").innerHTML = "Not applicable for this activity";
+};
+
+// for Activity 2, Unscramble
 //
 function fisherYatesShuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
