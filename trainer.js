@@ -32,8 +32,7 @@ class Trainer {
     };
 
     setSelectedActivity(activityIndex) {
-        // come back and update this random later
-        const selectedActivity = activityIndex != 99 ? activityIndex : Math.floor(Math.random() * 2);
+        const selectedActivity = activityIndex != 99 ? activityIndex : Math.floor(Math.random() * 6);
         this.selectedActivity = selectedActivity;
     };
 
@@ -247,7 +246,7 @@ function increment(postureIndex) {
 
 
 
-function selectRefresh() {
+function refreshAnswer() {
     // refresh practice section with existing selections
     renderPractice();
 
@@ -259,9 +258,17 @@ function selectRefresh() {
 // populate description of selected activity 
 //
 function generateActivityDescription() {
-    const activityDescription = activityMap[trainer.selectedActivity]["description"];
-    const descriptionText = "<p><b>Activity Instructions:</b><br><br>" + activityDescription + "</p>";
-    document.getElementById("question-description").innerHTML = descriptionText;
+    // const activityDescription = activityMap[trainer.selectedActivity]["description"];
+    // const descriptionText = "<p><b>Activity Instructions:</b><br><br>" + activityDescription + "</p>";
+    // document.getElementById("question-description").innerHTML = descriptionText;
+
+    const shortActivityDescription = activityMap[trainer.selectedActivity]["shortDescription"];
+    const shortDescriptionText = "<p><b>Instructions: </b>" + shortActivityDescription + "</p>";
+    if (trainer.selectedActivity == 4 || trainer.selectedActivity == 5 || trainer.selectedActivity == 100) {
+        document.getElementById("question-short-description").innerHTML = "";
+    } else {
+        document.getElementById("question-short-description").innerHTML = shortDescriptionText;
+    }
 };
 
 function checkAnswer() {
@@ -388,13 +395,13 @@ function scoreUnscramble() {
     };
     let displayResult = "";
     /// displayResult += "<p><b>Correct answers are: </b>" + correctAnswer.toString() + "</p>";
-    displayResult += "<p><b>Your answers are: </b>" + answerValues.toString() + "</p>";
+    displayResult += "<p><b>Your answer: </b><br>" + answerValues.toString() + "</p>";
     displayResult += "<p><b>Number correct: " + numCorrect.toString() + " out of " + answerElements.length.toString() + "</b></p>";
     document.getElementById("check-my-answer-feedback").innerHTML = displayResult;
 };
 
 function showAnswerUnscramble() {
-    document.getElementById("show-answer-feedback").innerHTML = "<p><b>Answer is:</b> <br>" + trainer.currentCorrectAnswer + "</p>";
+    document.getElementById("show-answer-feedback").innerHTML = "<p><b>Correct answer:</b> <br>" + trainer.currentCorrectAnswer + "</p>";
 };
 
 
@@ -523,13 +530,13 @@ function scoreFillBlanks() {
     };
     let displayResult = "";
     /// displayResult += "<p><b>Correct answers are: </b>" + trainer.currentCorrectAnswerDisplay + "</p>";
-    displayResult += "<p><b>Your answers are: </b>" + answerValues.toString() + "</p>";
+    displayResult += "<p><b>Your answer: </b><br>" + answerValues.toString() + "</p>";
     displayResult += "<p><b>Number correct: " + numCorrect.toString() + " out of " + answerElements.length.toString() + "</b></p>";
     document.getElementById("check-my-answer-feedback").innerHTML = displayResult;
 };
 
 function showAnswerFillBlanks() {
-    const answer = "<p><b>Answer is: </b><br>" + trainer.currentCorrectAnswerDisplay + "</p>";
+    const answer = "<p><b>Correct answer: </b><br>" + trainer.currentCorrectAnswerDisplay + "</p>";
 
     document.getElementById("show-answer-feedback").innerHTML = answer;
 };
@@ -658,15 +665,15 @@ function scoreTestWhole() {
     };
 
     let displayResult = "";
-    /// displayResult += "<p><b>Correct answer is: </b>" + trainer.currentCorrectAnswerDisplay + "</p>";
-    displayResult += "<p><b>Your answer is: </b>" + "<div style='text-align: left;'>" + userAnswerDisplay + "</div>" + "</p>";
+    /// displayResult += "<p><b>Correct answer: </b>" + trainer.currentCorrectAnswerDisplay + "</p>";
+    displayResult += "<p><b>Your answer: </b><br>" + "<div style='text-align: left;'>" + userAnswerDisplay + "</div>" + "</p>";
     displayResult += "<p><b>Number correct: " + numCorrect.toString() + " out of " + numWords.toString() + " words</b></p>" ;
 
     document.getElementById("check-my-answer-feedback").innerHTML = displayResult;
 }
 function showAnswerTestWhole() {
     const display = trainer.currentCorrectAnswerDisplay;
-    const answer = "<p><b>Answer is: </b><br>" + display + "</p>";
+    const answer = "<p><b>Correct answer: </b><br>" + display + "</p>";
 
     document.getElementById("show-answer-feedback").innerHTML = answer;
 }
@@ -686,17 +693,24 @@ const sectionMap = {
 const activityMap = {
     0: {
         "name": "Show Dialogue",
+        "shortDescription": "See the dialogue for the given posture.",
         "description": "See the entire dialogue for the given posture. \
             Good for reviewing.",
     },
     1: {
         "name": "Increment",
+        "shortDescription": "Take the posture one line at a time. \
+            <br>Press Increment to add a new line.  Press Refresh to clear all lines but the first line.",
         "description": "Sometimes it's easier to break things down and take the postures one line at a time. \
             Press the Increment button to add a new line. \
             Press Refresh to clear all lines but the first one.",
     },
     2: {
         "name": "Unscramble",
+        "shortDescription": "You will be shown the lines of the posture in scrambled order. \
+            Next to each line is a box. \
+            <br>Fill the box with a number \
+            (from 1 to the number of lines in the posture) indicating its correct order.",
         "description": "You will be shown all the lines of the posture in a scrambled order. \
             You will also be given the number of lines in the posture. \
             <br><br> Next to each line is a box, fill in the box with a number from 1 to the number of lines in the posture \
@@ -706,6 +720,9 @@ const activityMap = {
     },
     3: {
         "name": "Fill in the blanks",
+        "shortDescription": "Here is the dialogue for the posture with words missing, indicated by blanks. \
+            <br>Type the correct word in each blank. \
+            (Click the 'tab' key to quickly move from one blank to the next.)",
         "description": "Here is the dialogue for the posture with some words missing. \
         The missing words are indicated by blanks. \
         <br><br> Fill in the blanks by typing in the correct word in each blank. \
@@ -714,6 +731,8 @@ const activityMap = {
     },
     4: {
         "name": "Give me a random line",
+        "shortDescription": "Here is a randomly selected line from the posture dialogue. \
+            <br>Starting from this line (including this line), type the dialogue through the end of the posture.",
         "description": "You will be given a line from the posture that is randomly selected. \
         <br><br>Starting from that line (including that line), type the words of the posture, \
         all the way through the end of the posture. \
@@ -723,6 +742,7 @@ const activityMap = {
     },
     5: {
         "name": "Test me on the whole thing",
+        "shortDescription": "Type out the words of the dialogue of the entire posture.",
         "description": "In the space below, type out the words of the entire posture. \
         <br><br> Spelling matters. \
         However, punctuation (including apostrophes), capitalization, and spacing do not matter \
@@ -730,6 +750,7 @@ const activityMap = {
     },
     6: {
         "name": "Play Round Robin with me",
+        "shortDescription": "",
         "description": "The computer will provide the first line of the posture. \
         <br><br> When it is your turn, repeat the computer's last line and provide the next line, typing both lines in the text box. \
         <br><br> On the computer's turn, it will do the same - repeat your last line and provide the next line. \
@@ -739,10 +760,12 @@ const activityMap = {
     },
     99: {
         "name": "Choose for me at random!",
+        "shortDescription": "",
         "description": "",
     },
     100: {
         "name": "Unselected",
+        "shortDescription": "",
         "description": "",
     },
 };
