@@ -57,22 +57,17 @@ class Trainer {
 
     setCurrentCorrectAnswer(currentCorrectAnswer) {
         this.currentCorrectAnswer = currentCorrectAnswer;
-        //console.log("set current correct answer to", currentCorrectAnswer);
     };
     setCurrentCorrectAnswerSingleArray(currentCorrectAnswerSingleArray) {
         this.currentCorrectAnswerSingleArray = currentCorrectAnswerSingleArray;
-        //console.log("set current correct answer single array to", currentCorrectAnswerSingleArray);
     };
     setCurrentCorrectAnswerDisplay(currentCorrectAnswerDisplay) {
         this.currentCorrectAnswerDisplay = currentCorrectAnswerDisplay;
-        //console.log("set current correct answer display to", currentCorrectAnswerDisplay);
     };
     setSubmittedAnswer(submittedAnswer) {
         this.submittedAnswer = submittedAnswer;
-        //console.log("set submitted answer to", submittedAnswer);
     };
     
-
 };
 
 // initialize trainer
@@ -128,8 +123,6 @@ function clearPractice() {
     // clears practice section
     document.getElementById("show-dialogue-container").innerHTML = ""; 
     document.getElementById("increment-container").innerHTML = "";
-    
-    
     document.getElementById("unscramble-container").innerHTML = ""; 
     document.getElementById("fill-blanks-container").innerHTML = ""; 
     document.getElementById("random-line-container").innerHTML = ""; 
@@ -254,17 +247,10 @@ function increment(postureIndex) {
 
 
 
-//
-//
-//
-//
-//
-//
-//
-
-function selectR() {
+function selectRefresh() {
     // refresh practice section with existing selections
     renderPractice();
+
     // clear any existing feedback
     document.getElementById("check-my-answer-feedback").innerHTML = "";
     document.getElementById("show-answer-feedback").innerHTML = "";
@@ -278,7 +264,7 @@ function generateActivityDescription() {
     document.getElementById("question-description").innerHTML = descriptionText;
 };
 
-function checkMyAnswer() {
+function checkAnswer() {
     // show dialogue 
     if (trainer.selectedActivity == 0) {
         scoreShowDialogue();
@@ -341,8 +327,15 @@ function showAnswerShowDialogue() {
     document.getElementById("show-answer-feedback").innerHTML = "Not applicable for this activity";
 };
 
+function scoreIncrement() {
+    document.getElementById("check-my-answer-feedback").innerHTML = "Not applicable for this activity";
+};
 
-// for Activity 1, Unscramble
+function showAnswerIncrement() {
+    document.getElementById("show-answer-feedback").innerHTML = "Not applicable for this activity";
+};
+
+// for Activity 2, Unscramble
 //
 function fisherYatesShuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -372,7 +365,6 @@ function unscramble(postureIndex) {
         scrambledLineIndices1Index.push(scrambledLineIndices[i] + 1 - startIndex);
     };
 
-    
     trainer.setCurrentCorrectAnswer(scrambledLineIndices1Index);
     document.getElementById("unscramble-container").innerHTML = "<p>" + scrambled + "</p>";    
 };
@@ -386,7 +378,6 @@ function scoreUnscramble() {
         answerValues.push(answerElements[i].value);
     };
     trainer.setSubmittedAnswer(answerValues.toString());
-    console.log('correct answer answer values', correctAnswer, answerValues)
 
     let numCorrect = 0;
     for (let i = 0; i < answerElements.length; i++) {
@@ -396,14 +387,14 @@ function scoreUnscramble() {
         };
     };
     let displayResult = "";
-    displayResult += "<p><b>Correct answers are: </b>" + correctAnswer.toString() + "</p>";
+    /// displayResult += "<p><b>Correct answers are: </b>" + correctAnswer.toString() + "</p>";
     displayResult += "<p><b>Your answers are: </b>" + answerValues.toString() + "</p>";
     displayResult += "<p><b>Number correct: " + numCorrect.toString() + " out of " + answerElements.length.toString() + "</b></p>";
     document.getElementById("check-my-answer-feedback").innerHTML = displayResult;
 };
 
 function showAnswerUnscramble() {
-    document.getElementById("show-answer-feedback").innerHTML = "<p>Answer is: <br>" + trainer.currentCorrectAnswer + "</p>";
+    document.getElementById("show-answer-feedback").innerHTML = "<p><b>Answer is:</b> <br>" + trainer.currentCorrectAnswer + "</p>";
 };
 
 
@@ -444,9 +435,6 @@ function fillBlanks(postureIndex) {
         allWordsIndicesScrambled.push(scrambledWordsIndices);
 
     };
-    console.log("all words indices scrambled", allWordsIndicesScrambled);
-    console.log('all words', allWords)
-    console.log('all words cleaned', allWordsCleaned);
 
     let allBlankWordsCleaned = []; // array of arrays
 
@@ -489,15 +477,10 @@ function fillBlanks(postureIndex) {
 
         // this will have punctuation 
         allBlankWords.push(blankWordsInLine);
-        //console.log('all blank words', allBlankWords);
 
         allBlankWordsCleaned.push(blankWordsInLineCleaned);
 
-        //console.log('all blank words single array', allBlankWordsSingleArray);
-        //console.log('display for line', i, displayForLine);
-
-        display += displayForLine + "<br>";
-        
+        display += displayForLine + "<br>";      
     };
 
     let allBlankWordsSingleArrayCleaned = []
@@ -507,10 +490,7 @@ function fillBlanks(postureIndex) {
         allBlankWordsSingleArrayCleaned.push(wordCleaned);
     };
     trainer.setCurrentCorrectAnswer(allBlankWordsCleaned);
-    //console.log('current correct answer', trainer.currentCorrectAnswerCleaned);
     trainer.setCurrentCorrectAnswerSingleArray(allBlankWordsSingleArrayCleaned);
-
-    console.log(display);
 
     let answer = "";
     answer += "<p>";
@@ -526,7 +506,7 @@ function fillBlanks(postureIndex) {
 function scoreFillBlanks() {
     const correctAnswer = trainer.currentCorrectAnswerSingleArray;
     const answerElements = document.getElementsByClassName("fill-blanks-answer");
-    //console.log(answerElements.length, 'length of answer elements');
+
     let answerValues = [];
     for (let i = 0; i < answerElements.length; i++) {
         const word = answerElements[i].value;
@@ -534,7 +514,7 @@ function scoreFillBlanks() {
         answerValues.push(wordCleaned);
     };
     trainer.setSubmittedAnswer(answerValues.toString());
-    //console.log("scoring fill blanks", correctAnswer, answerValues);
+
     let numCorrect = 0;
     for (let i = 0; i < answerElements.length; i++) {
         if (correctAnswer[i].toString() == answerValues[i]) {
@@ -542,14 +522,13 @@ function scoreFillBlanks() {
         };
     };
     let displayResult = "";
-    displayResult += "<p><b>Correct answers are: </b>" + trainer.currentCorrectAnswerDisplay + "</p>";
+    /// displayResult += "<p><b>Correct answers are: </b>" + trainer.currentCorrectAnswerDisplay + "</p>";
     displayResult += "<p><b>Your answers are: </b>" + answerValues.toString() + "</p>";
     displayResult += "<p><b>Number correct: " + numCorrect.toString() + " out of " + answerElements.length.toString() + "</b></p>";
     document.getElementById("check-my-answer-feedback").innerHTML = displayResult;
 };
 
 function showAnswerFillBlanks() {
-    //console.log('showing answer fill blanks');
     const answer = "<p><b>Answer is: </b><br>" + trainer.currentCorrectAnswerDisplay + "</p>";
 
     document.getElementById("show-answer-feedback").innerHTML = answer;
@@ -586,7 +565,6 @@ function randomLine(postureIndex) {
         dialogueSingleString += content[postureIndex]["postureContent"]["lines"][i].replace(/[^\p{L}\p{Z}]/gu, '') + " ";
     }
 
-    //console.log('dialogue single string', dialogueSingleString)
     trainer.setCurrentCorrectAnswer(dialogueSingleString)
 
     const answerDisplay = "<div style='text-align:left;'>" + dialogue + "</div>";
@@ -620,7 +598,6 @@ function testWhole(postureIndex) {
         dialogueSingleString += content[postureIndex]["postureContent"]["lines"][i].replace(/[^\p{L}\p{Z}]/gu, '') + " ";
     };
 
-    //console.log('dialogue single string', dialogueSingleString)
     trainer.setCurrentCorrectAnswer(dialogueSingleString)
 
     const answerDisplay = "<div style='text-align:left;'>" + dialogue + "</div>";
@@ -633,9 +610,8 @@ function scoreTestWhole() {
 
     // replace new line with space, remove multiple spaces, remove anything that is not space or letter
     let userAnswerCleaned = userAnswer.replace(/\n/g, " ").replace(/[^\p{L}\p{Z}]/gu, '').toLowerCase();
-    //console.log('user answer cleaned0', userAnswerCleaned)
     userAnswerCleaned = userAnswerCleaned.replace(/\s+/g, ' ').trim();
-    //console.log('user answer cleaned1', userAnswerCleaned)
+
     // array of words in user answer
     const userAnswerCleanedWords = userAnswerCleaned.split(" ");
 
@@ -643,11 +619,6 @@ function scoreTestWhole() {
     answerCleaned = answerCleaned.replace(/\s+/g, ' ').trim();
     answerCleanedWords = answerCleaned.split(" ");
     const numWords = answerCleanedWords.length;
-
-    //console.log('user answer', userAnswer);
-    //console.log("user answer cleaned words", userAnswerCleanedWords)
-    //console.log('answer cleaned words', answerCleaned, answerCleanedWords)
-
     
     // compute number correct 
     let numCorrect = 0;
@@ -670,8 +641,6 @@ function scoreTestWhole() {
             answerWordsFreq[word] = 1;
         };
     };
-    //console.log('user words freq', userWordsFreq)
-    //console.log('answer words freq', answerWordsFreq)
 
     // for word in user words, if freq is at most what it is in answer words freq 
     // then add freq to score
@@ -688,10 +657,8 @@ function scoreTestWhole() {
         };
     };
 
-
-
     let displayResult = "";
-    displayResult += "<p><b>Correct answer is: </b>" + trainer.currentCorrectAnswerDisplay + "</p>";
+    /// displayResult += "<p><b>Correct answer is: </b>" + trainer.currentCorrectAnswerDisplay + "</p>";
     displayResult += "<p><b>Your answer is: </b>" + "<div style='text-align: left;'>" + userAnswerDisplay + "</div>" + "</p>";
     displayResult += "<p><b>Number correct: " + numCorrect.toString() + " out of " + numWords.toString() + " words</b></p>" ;
 
@@ -704,14 +671,6 @@ function showAnswerTestWhole() {
     document.getElementById("show-answer-feedback").innerHTML = answer;
 }
 
-
-//
-//
-//
-//
-//
-//
-//
 
 
 
