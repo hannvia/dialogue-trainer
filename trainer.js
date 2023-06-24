@@ -387,14 +387,14 @@ function scoreUnscramble() {
         };
     };
     let displayResult = "";
-    displayResult += "<p><b>Correct answers are: </b>" + correctAnswer.toString() + "</p>";
+    /// displayResult += "<p><b>Correct answers are: </b>" + correctAnswer.toString() + "</p>";
     displayResult += "<p><b>Your answers are: </b>" + answerValues.toString() + "</p>";
     displayResult += "<p><b>Number correct: " + numCorrect.toString() + " out of " + answerElements.length.toString() + "</b></p>";
     document.getElementById("check-my-answer-feedback").innerHTML = displayResult;
 };
 
 function showAnswerUnscramble() {
-    document.getElementById("show-answer-feedback").innerHTML = "<p>Answer is: <br>" + trainer.currentCorrectAnswer + "</p>";
+    document.getElementById("show-answer-feedback").innerHTML = "<p><b>Answer is:</b> <br>" + trainer.currentCorrectAnswer + "</p>";
 };
 
 
@@ -522,7 +522,7 @@ function scoreFillBlanks() {
         };
     };
     let displayResult = "";
-    displayResult += "<p><b>Correct answers are: </b>" + trainer.currentCorrectAnswerDisplay + "</p>";
+    /// displayResult += "<p><b>Correct answers are: </b>" + trainer.currentCorrectAnswerDisplay + "</p>";
     displayResult += "<p><b>Your answers are: </b>" + answerValues.toString() + "</p>";
     displayResult += "<p><b>Number correct: " + numCorrect.toString() + " out of " + answerElements.length.toString() + "</b></p>";
     document.getElementById("check-my-answer-feedback").innerHTML = displayResult;
@@ -658,7 +658,7 @@ function scoreTestWhole() {
     };
 
     let displayResult = "";
-    displayResult += "<p><b>Correct answer is: </b>" + trainer.currentCorrectAnswerDisplay + "</p>";
+    /// displayResult += "<p><b>Correct answer is: </b>" + trainer.currentCorrectAnswerDisplay + "</p>";
     displayResult += "<p><b>Your answer is: </b>" + "<div style='text-align: left;'>" + userAnswerDisplay + "</div>" + "</p>";
     displayResult += "<p><b>Number correct: " + numCorrect.toString() + " out of " + numWords.toString() + " words</b></p>" ;
 
