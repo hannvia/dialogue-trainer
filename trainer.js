@@ -264,10 +264,10 @@ function generateActivityDescription() {
 
     const shortActivityDescription = activityMap[trainer.selectedActivity]["shortDescription"];
     const shortDescriptionText = "<p><b>Instructions: </b>" + shortActivityDescription + "</p>";
-    if (trainer.selectedActivity == 4 || trainer.selectedActivity == 5 || trainer.selectedActivity == 100) {
-        document.getElementById("question-short-description").innerHTML = "";
-    } else {
+    if (trainer.selectedActivity == 1 || trainer.selectedActivity == 2 || trainer.selectedActivity == 3) {
         document.getElementById("question-short-description").innerHTML = shortDescriptionText;
+    } else {
+        document.getElementById("question-short-description").innerHTML = "";
     }
 };
 
