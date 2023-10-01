@@ -1089,8 +1089,38 @@ const content = {
         },
     },
     7: {
-        "postureName": "standingHeadToKnee",
-        "posturePrintName": "Standing Head to Knee",
+        "postureName": "standingHeadToKneeRight",
+        "posturePrintName": "Standing Head to Knee (Right)",
+        "postureNumLines": 17,
+        "postureSections": [[0,16], [0,7], [8,10], [11,15], [16,16]],
+        "postureContent": {
+            "lines": {
+                0: "Feet together nicely.",               
+                1: "Shift your weight to your left Leg.",
+                2: "Interlock your 10 fingers and grab the right Foot in front of you, 3 inches below the Toes.",
+                3: "Hold it, nice and tight grip. Please don’t lose the grip.",
+
+                4: "Look in the mirror.",
+                5: "From start to finish: Concentrate one point on your left Knee in the mirror.",
+                6: "Make sure the Knee is absolutely locked to begin with.  You don't have the knee.", 
+                7: "Your left Leg should be solid, concrete, one piece, lamppost, unbroken. NO KNEE.", 
+                
+                8: "Inhale breathing: Slowly, gently, right Leg lift up and stretch forward toward the mirror, until the Leg is exactly parallel to the floor. No higher, no lower.",
+                9: "Left Knee LOCKED.",
+                10: "Take a deep breath, Continuously kick your right Leg Heel forward toward the mirror, so you can turn your right Foot in from the Ankle toward your face, with all 5 Toes turning in.",
+                11: "If the standing Leg is bending, the posture has not started yet.",
+                12: "Kick your Heel out, turn your Toes in.",
+                13: "Try to get both Knees locked, so from the side your Legs look like a perfect Upside-down “L” like Linda.",
+                14: "If both Knees are locked, and still you can balance there comfortably, then, only, you can bend your Elbows down toward the floor, until your Elbows are touching the Calf Muscle.",
+                15: "Eventually, your Elbows should go down below the Calf Muscle.",
+                
+                16: "Change. Left leg.",
+            },      
+        },
+    },
+    27: {
+        "postureName": "standingHeadToKneeLeft",
+        "posturePrintName": "Standing Head to Knee (Left)",
         "postureNumLines": 20,
         "postureSections": [[0,19], [0,7], [8,13], [14,17], [18,19]],
         "postureContent": {
@@ -1747,42 +1777,73 @@ const content = {
             },
         },
     },
-    27: {
-        "postureName": "pranayamaBreathing",
-        "posturePrintName": "Pranayama Breathing",
-        "postureNumLines": 1,
-        "postureSections": [[0,0], [0,0], [0,0], [0,0]],
-        "postureContent": {
-            "lines": {
-                0: "Coming soon!"
-            },
-        },
-    },
     28: {
         "postureName": "savasana",
         "posturePrintName": "Savasana",
-        "postureNumLines": 1,
-        "postureSections": [[0,0], [0,0], [0,0], [0,0]],
+        "postureNumLines": 6,
+        "postureSections": [[0,5], [0,0], [1,2], [3,4], [5,5]],
         "postureContent": {
             "lines": {
-                0: "Coming soon!"
+                0: "Turn around and lie down on your back, Feet facing the back wall.",
+                1: "Relax completely.",
+                2: "Heels together, Let your feet fall open.",
+                3: "Arms on the towel, Palms facing up.",
+                4: "Head straight, Eyes always open, And breathing always normal.",
+                5: "Don’t move.",
             },
         },
     },
     29: {
         "postureName": "sitUp",
         "posturePrintName": "Sit-Up",
-        "postureNumLines": 1,
-        "postureSections": [[0,0], [0,0], [0,0], [0,0]],
+        "postureNumLines": 6,
+        "postureSections": [[0,5], [0,0], [1,1], [2,4], [5,5]],
         "postureContent": {
             "lines": {
-                0: "Coming soon!"
+                0: "Toes and heels together. Flex your feet, Lock your legs, Keep your heels on the floor.",
+                1: "Arms over your head, Cross your thumbs, Arms and head together.",
+                
+                2: "Inhale breathing, Quickly sit up.",
+                3: "Exhale breathing, Grab your big toes, Double jerk.", 
+                4: "Touch your forehead to the knees, Elbows to the floor.",
+
+                5: "Turn around and lie on your stomach for the spine strengthening series.",
             },
         },
     },
     30: {
         "postureName": "blowingInFirm",
         "posturePrintName": "Blowing In Firm",
+        "postureNumLines": 1,
+        "postureSections": [[0,14], [0,3], [4,6], [7,11], [12,12]],
+        "postureContent": {
+            "lines": {
+                0: "Sit down kneeling position facing the mirror.",
+                1: "We started with Pranayama Breathing Exercise, Good for the lungs.", 
+                2: "We end with another Breathing Exercise, Blowing in Firm Pose,",
+                3: "Good for your digestive system, Internal organs, And abdominal muscles.",
+
+                4: "Blow out by your lips very strong, Pull your stomach in and out.", 
+                5: "No inhale, Only exhale. Inhale happens automatically.",
+                6: "Follow me everybody.",
+
+                7: "Hands on the knees, Arms straight, Lock your elbows.", 
+                8: "Throughout the entire pose, Spine is straight, Shoulders relaxed.", 
+                9: "Abdominal wall is perfectly relaxed.",
+                10: "Swallow a couple of times.", 
+                
+                11: "Begin please. (60 times).",
+                
+                12: "Repeat.",
+                13: "(2nd Set faster pace).",
+                
+                14: "Relax on your back, Please. Final Savasana.",
+            },
+        },
+    },
+    31: {
+        "postureName": "pranayamaBreathing",
+        "posturePrintName": "Pranayama Breathing",
         "postureNumLines": 1,
         "postureSections": [[0,0], [0,0], [0,0], [0,0]],
         "postureContent": {
